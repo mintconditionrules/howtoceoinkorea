@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "created": "2026-05-30T23:16:47.076Z",
+  "modified": "2026-05-30T23:19:23.194Z",
+  "objects": [
+    {
+      "id": "ezc48k8xs",
+      "type": "text",
+      "x": 460,
+      "y": 219.33333206176758,
+      "data": {
+        "content": "HowtoceoinKorea.com",
+        "fontSize": 16,
+        "color": "#000000",
+        "bold": false
+      },
+      "width": 167,
+      "height": 21
+    },
+    {
+      "id": "7q7n214uz",
+      "type": "rect",
+      "x": 443,
+      "y": 250.33333206176758,
+      "width": 203,
+      "height": 79,
+      "data": {
+        "fill": null,
+        "stroke": "#000000",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "id": "dwtj6lifg",
+      "type": "text",
+      "x": 489,
+      "y": 293.3333320617676,
+      "data": {
+        "content": "main banner",
+        "fontSize": 16,
+        "color": "#000000",
+        "bold": false
+      },
+      "width": 92,
+      "height": 21
+    },
+    {
+      "id": "1leupj6bv",
+      "type": "text",
+      "x": 468,
+      "y": 350.3333320617676,
+      "data": {
+        "content": "blog style article list",
+        "fontSize": 16,
+        "color": "#000000",
+        "bold": false
+      },
+      "width": 147,
+      "height": 21
+    }
+  ]
+}

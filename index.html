@@ -396,7 +396,7 @@
 
   // ── Medium RSS feed ───────────────────────────────────────
   const MEDIUM_USER = 'ticktheboxkr';
-  const RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USER}&count=20`;
+  const MEDIUM_FEED = `https://medium.com/feed/@${MEDIUM_USER}`;
 
   function stripHtml(html) {
     const tmp = document.createElement('div');
@@ -417,25 +417,26 @@
   function renderPosts(items) {
     const section = document.getElementById('posts');
     if (!items || items.length === 0) {
-      section.innerHTML = '<p style="text-align:center;color:var(--mut);padding:40px 0">No articles yet.</p>';
+      section.innerHTML = '<p style="text-align:center;color:var(--mut);padding:40px 0">No articles yet. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Visit Medium →</a></p>';
       return;
     }
     section.innerHTML = items.map(item => {
+      const url   = item.link || item.url || '';
       const thumb = item.thumbnail || item.enclosure?.link || '';
-      const tags  = (item.categories || []).slice(0, 3);
-      const date  = formatDate(item.pubDate);
+      const tags  = (item.categories || item.tags || []).slice(0, 3);
+      const date  = formatDate(item.pubDate || item.published || '');
       const dek   = excerpt(item.description || item.content || '', 160);
+      const safeUrl = url.replace(/"/g, '&quot;');
       const thumbHtml = thumb
         ? `<img src="${thumb}" alt="" onerror="this.style.display='none'">`
         : '';
-      const tagsHtml = tags.map(t => `<span class="tag">#${t.replace(/\s+/g,'')}</span>`).join('');
+      const tagsHtml = tags.map(t => `<span class="tag">#${String(t).replace(/\s+/g,'')}</span>`).join('');
       const metaHtml = tagsHtml
         ? `${tagsHtml}<span class="dot"></span><span class="post-date">${date}</span>`
         : `<span class="post-date">${date}</span>`;
-
       return `
-        <article class="post" onclick="window.open('${item.link}','_blank')" role="link" tabindex="0"
-          onkeydown="if(event.key==='Enter')window.open('${item.link}','_blank')">
+        <article class="post" onclick="window.open('${safeUrl}','_blank')" role="link" tabindex="0"
+          onkeydown="if(event.key==='Enter')window.open('${safeUrl}','_blank')">
           <div class="thumb">${thumbHtml}</div>
           <div class="post-body">
             <h3 class="post-ttl">${item.title}</h3>
@@ -446,19 +447,60 @@
     }).join('');
   }
 
-  async function loadFeed() {
-    try {
-      const res  = await fetch(RSS_API);
-      const data = await res.json();
-      if (data.status === 'ok' && data.items?.length) {
-        renderPosts(data.items);
-      } else {
-        throw new Error('empty feed');
+  // Parse raw RSS/Atom XML → array of item objects
+  function parseXml(xmlStr) {
+    const doc   = new DOMParser().parseFromString(xmlStr, 'text/xml');
+    const items = [...doc.querySelectorAll('item, entry')];
+    return items.map(el => {
+      const text  = s => el.querySelector(s)?.textContent || '';
+      const attr  = (s, a) => el.querySelector(s)?.getAttribute(a) || '';
+      // thumbnail: <media:thumbnail> or <media:content> or first <img> in content
+      let thumb = attr('thumbnail', 'url') || attr('content[medium="image"]', 'url') || '';
+      if (!thumb) {
+        const html = text('description') || text('content') || text('encoded') || '';
+        const m = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+        if (m) thumb = m[1];
       }
-    } catch {
-      document.getElementById('posts').innerHTML =
-        '<p style="text-align:center;color:var(--mut);padding:40px 0">Could not load articles. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Read on Medium →</a></p>';
-    }
+      const cats = [...el.querySelectorAll('category')].map(c => c.textContent.trim()).filter(Boolean);
+      return {
+        title:       text('title'),
+        link:        text('link') || attr('link[rel="alternate"]', 'href') || attr('link', 'href'),
+        pubDate:     text('pubDate') || text('published') || text('updated'),
+        description: text('description') || text('summary'),
+        content:     text('content') || text('encoded'),
+        thumbnail:   thumb,
+        categories:  cats,
+      };
+    });
+  }
+
+  async function loadFeed() {
+    const errHtml = '<p style="text-align:center;color:var(--mut);padding:40px 0">Could not load articles. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Read on Medium →</a></p>';
+
+    // Strategy 1: rss2json.com
+    try {
+      const r1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED)}&count=20`);
+      const d1 = await r1.json();
+      if (d1.status === 'ok' && d1.items?.length) { renderPosts(d1.items); return; }
+    } catch {}
+
+    // Strategy 2: allorigins.win CORS proxy → parse XML ourselves
+    try {
+      const r2  = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(MEDIUM_FEED)}`);
+      const d2  = await r2.json();
+      const items = parseXml(d2.contents);
+      if (items.length) { renderPosts(items); return; }
+    } catch {}
+
+    // Strategy 3: corsproxy.io
+    try {
+      const r3 = await fetch(`https://corsproxy.io/?${encodeURIComponent(MEDIUM_FEED)}`);
+      const xml = await r3.text();
+      const items = parseXml(xml);
+      if (items.length) { renderPosts(items); return; }
+    } catch {}
+
+    document.getElementById('posts').innerHTML = errHtml;
   }
 
   loadFeed();

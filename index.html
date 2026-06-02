@@ -493,10 +493,11 @@
     try {
       const ctrl = new AbortController();
       const timer = setTimeout(() => ctrl.abort(), 5000);
-      const r = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED)}&count=20`, { signal: ctrl.signal });
+      const r = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(MEDIUM_FEED)}`, { signal: ctrl.signal });
       clearTimeout(timer);
       const d = await r.json();
-      if (d.status === 'ok' && d.items?.length) { renderPosts(d.items); return; }
+      const items = parseXml(d.contents);
+      if (items.length) { renderPosts(items); return; }
     } catch {}
 
     document.getElementById('posts').innerHTML = errHtml;

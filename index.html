@@ -178,6 +178,24 @@
       border-radius: 50%;
       background: var(--hair);
     }
+    .post-loading {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 48px 0;
+    }
+    .post-loading span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--hair);
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    .post-loading span:nth-child(2) { animation-delay: .2s; }
+    .post-loading span:nth-child(3) { animation-delay: .4s; }
+    @keyframes pulse {
+      0%, 80%, 100% { opacity: .25; transform: scale(.8); }
+      40% { opacity: 1; transform: scale(1); }
+    }
 
     /* ── Newsletter ──────────────────────────────────────── */
     .news { text-align: center; padding: 66px 0 8px; }
@@ -331,123 +349,11 @@
     </div>
   </section>
 
-  <!-- Article list -->
-  <section class="posts" aria-label="Articles">
-
-    <article class="post">
-      <div class="thumb">
-        <img
-          src="https://loremflickr.com/480/480/seoul,finance?lock=21"
-          onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://picsum.photos/seed/ceokr-market/480';}"
-          alt=""
-        />
-      </div>
-      <div class="post-body">
-        <h3 class="post-ttl">The economic trends quietly reshaping Korea in 2026</h3>
-        <p class="post-summary">Slower growth, an aging workforce, and a won that won't sit still — what they mean for anyone deploying capital here.</p>
-        <div class="post-meta">
-          <span class="tag">#Market</span>
-          <span class="dot"></span>
-          <span class="post-date">May 28, 2026</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="post">
-      <div class="thumb">
-        <img
-          src="https://loremflickr.com/480/480/korea,government?lock=22"
-          onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://picsum.photos/seed/ceokr-policy/480';}"
-          alt=""
-        />
-      </div>
-      <div class="post-body">
-        <h3 class="post-ttl">Korea vs. Japan: how startup policy actually differs</h3>
-        <p class="post-summary">Two neighbours, two playbooks. A side-by-side on grants, visas, and the appetite for foreign founders.</p>
-        <div class="post-meta">
-          <span class="tag">#Policy</span>
-          <span class="dot"></span>
-          <span class="post-date">May 21, 2026</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="post">
-      <div class="thumb">
-        <img
-          src="https://loremflickr.com/480/480/seoul,business?lock=23"
-          onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://picsum.photos/seed/ceokr-biz/480';}"
-          alt=""
-        />
-      </div>
-      <div class="post-body">
-        <h3 class="post-ttl">The businesses foreigners actually succeed at in Korea</h3>
-        <p class="post-summary">Where outsider perspective is an edge — and the sectors where it quietly works against you.</p>
-        <div class="post-meta">
-          <span class="tag">#Operations</span>
-          <span class="dot"></span>
-          <span class="post-date">May 14, 2026</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="post">
-      <div class="thumb">
-        <img
-          src="https://loremflickr.com/480/480/office,documents?lock=24"
-          onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://picsum.photos/seed/ceokr-ops/480';}"
-          alt=""
-        />
-      </div>
-      <div class="post-body">
-        <h3 class="post-ttl">A founder's guide to Korea's incorporation paperwork</h3>
-        <p class="post-summary">The forms, the order, the stamps. A walk-through of the week that turns an idea into a legal entity.</p>
-        <div class="post-meta">
-          <span class="tag">#Operations</span>
-          <span class="dot"></span>
-          <span class="post-date">May 7, 2026</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="post">
-      <div class="thumb">
-        <img
-          src="https://loremflickr.com/480/480/passport,airport?lock=25"
-          onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://picsum.photos/seed/ceokr-visa/480';}"
-          alt=""
-        />
-      </div>
-      <div class="post-body">
-        <h3 class="post-ttl">Visa routes for foreign CEOs: D-8, D-9 and the road to F-5</h3>
-        <p class="post-summary">Which status lets you run the company, which lets you stay, and how the two finally meet.</p>
-        <div class="post-meta">
-          <span class="tag">#Visa</span>
-          <span class="dot"></span>
-          <span class="post-date">Apr 30, 2026</span>
-        </div>
-      </div>
-    </article>
-
-    <article class="post">
-      <div class="thumb">
-        <img
-          src="https://loremflickr.com/480/480/money,finance?lock=26"
-          onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://picsum.photos/seed/ceokr-fund/480';}"
-          alt=""
-        />
-      </div>
-      <div class="post-body">
-        <h3 class="post-ttl">Understanding Korea's government grants and R&amp;D budgets</h3>
-        <p class="post-summary">Billions are allocated each year. A map of which programs a foreign-led company can realistically reach.</p>
-        <div class="post-meta">
-          <span class="tag">#Funding</span>
-          <span class="dot"></span>
-          <span class="post-date">Apr 23, 2026</span>
-        </div>
-      </div>
-    </article>
-
+  <!-- Article list — loaded from Medium RSS -->
+  <section class="posts" id="posts" aria-label="Articles">
+    <div class="post-loading">
+      <span></span><span></span><span></span>
+    </div>
   </section>
 
   <!-- Newsletter -->
@@ -476,18 +382,86 @@
 </div><!-- /wrap -->
 
 <script>
+  // ── Newsletter ────────────────────────────────────────────
   function handleSubscribe(e) {
     e.preventDefault();
     const input = document.getElementById('email-input');
     const btn = e.target.querySelector('button');
     const email = input.value.trim();
     if (!email) return;
-
     btn.textContent = 'Done ✓';
     btn.disabled = true;
     input.disabled = true;
-    input.value = email;
   }
+
+  // ── Medium RSS feed ───────────────────────────────────────
+  const MEDIUM_USER = 'ticktheboxkr';
+  const RSS_API = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USER}&count=20`;
+
+  function stripHtml(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  }
+
+  function excerpt(text, max) {
+    const clean = stripHtml(text).replace(/\s+/g, ' ').trim();
+    return clean.length <= max ? clean : clean.slice(0, max).replace(/\s+\S*$/, '') + '…';
+  }
+
+  function formatDate(str) {
+    const d = new Date(str);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  function renderPosts(items) {
+    const section = document.getElementById('posts');
+    if (!items || items.length === 0) {
+      section.innerHTML = '<p style="text-align:center;color:var(--mut);padding:40px 0">No articles yet.</p>';
+      return;
+    }
+    section.innerHTML = items.map(item => {
+      const thumb = item.thumbnail || item.enclosure?.link || '';
+      const tags  = (item.categories || []).slice(0, 3);
+      const date  = formatDate(item.pubDate);
+      const dek   = excerpt(item.description || item.content || '', 160);
+      const thumbHtml = thumb
+        ? `<img src="${thumb}" alt="" onerror="this.style.display='none'">`
+        : '';
+      const tagsHtml = tags.map(t => `<span class="tag">#${t.replace(/\s+/g,'')}</span>`).join('');
+      const metaHtml = tagsHtml
+        ? `${tagsHtml}<span class="dot"></span><span class="post-date">${date}</span>`
+        : `<span class="post-date">${date}</span>`;
+
+      return `
+        <article class="post" onclick="window.open('${item.link}','_blank')" role="link" tabindex="0"
+          onkeydown="if(event.key==='Enter')window.open('${item.link}','_blank')">
+          <div class="thumb">${thumbHtml}</div>
+          <div class="post-body">
+            <h3 class="post-ttl">${item.title}</h3>
+            ${dek ? `<p class="post-summary">${dek}</p>` : ''}
+            <div class="post-meta">${metaHtml}</div>
+          </div>
+        </article>`;
+    }).join('');
+  }
+
+  async function loadFeed() {
+    try {
+      const res  = await fetch(RSS_API);
+      const data = await res.json();
+      if (data.status === 'ok' && data.items?.length) {
+        renderPosts(data.items);
+      } else {
+        throw new Error('empty feed');
+      }
+    } catch {
+      document.getElementById('posts').innerHTML =
+        '<p style="text-align:center;color:var(--mut);padding:40px 0">Could not load articles. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Read on Medium →</a></p>';
+    }
+  }
+
+  loadFeed();
 </script>
 
 </body>

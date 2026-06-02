@@ -490,27 +490,13 @@
   async function loadFeed() {
     const errHtml = '<p style="text-align:center;color:var(--mut);padding:40px 0">Could not load articles. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Read on Medium →</a></p>';
 
-    // Strategy 1: rss2json.com
     try {
-      const r1 = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED)}&count=20`);
-      const d1 = await r1.json();
-      if (d1.status === 'ok' && d1.items?.length) { renderPosts(d1.items); return; }
-    } catch {}
-
-    // Strategy 2: allorigins.win CORS proxy → parse XML ourselves
-    try {
-      const r2  = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(MEDIUM_FEED)}`);
-      const d2  = await r2.json();
-      const items = parseXml(d2.contents);
-      if (items.length) { renderPosts(items); return; }
-    } catch {}
-
-    // Strategy 3: corsproxy.io
-    try {
-      const r3 = await fetch(`https://corsproxy.io/?${encodeURIComponent(MEDIUM_FEED)}`);
-      const xml = await r3.text();
-      const items = parseXml(xml);
-      if (items.length) { renderPosts(items); return; }
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 5000);
+      const r = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED)}&count=20`, { signal: ctrl.signal });
+      clearTimeout(timer);
+      const d = await r.json();
+      if (d.status === 'ok' && d.items?.length) { renderPosts(d.items); return; }
     } catch {}
 
     document.getElementById('posts').innerHTML = errHtml;

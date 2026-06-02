@@ -90,6 +90,7 @@
       position: relative;
       height: 340px;
       overflow: hidden;
+      cursor: pointer;
     }
     .banner-img {
       position: absolute;
@@ -329,15 +330,16 @@
     <p class="tagline">The ultimate guide to founding, funding, and running a company in Korea.</p>
     <div class="byline">Written by a certified business advisor</div>
     <nav class="mast-links">
-      <a href="#learn-more">Learn more</a>
+      <a href="#posts">Learn more</a>
       <span class="sep">|</span>
-      <a href="#contact">Contact</a>
+      <a href="mailto:ticktheboxkr@gmail.com">Contact</a>
     </nav>
   </header>
 
-  <!-- Banner -->
+  <!-- Banner — update BANNER_URL when ready -->
   <section class="bannerwrap">
-    <div class="banner">
+    <a id="banner-link" href="#" class="banner" target="_blank" rel="noopener"
+       style="display:block;text-decoration:none;">
       <img
         class="banner-img"
         src="https://loremflickr.com/1600/680/seoul,skyline,city?lock=12"
@@ -346,7 +348,7 @@
       />
       <div class="banner-scrim"></div>
       <h1 class="banner-h1">Five things you need to know before you start a company in Korea</h1>
-    </div>
+    </a>
   </section>
 
   <!-- Article list — loaded from Medium RSS -->
@@ -373,8 +375,8 @@
     <div class="foot-role">Business Advisor</div>
     <div class="foot-cert">Written by a certified business advisor</div>
     <nav class="foot-links">
-      <a href="#learn-more" id="learn-more">Learn more</a>
-      <a href="#contact" id="contact">Contact</a>
+      <a href="#posts">Learn more</a>
+      <a href="mailto:ticktheboxkr@gmail.com">Contact</a>
       <a href="privacy.html">Privacy</a>
     </nav>
   </footer>

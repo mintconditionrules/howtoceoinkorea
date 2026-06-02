@@ -421,7 +421,7 @@
       return;
     }
     section.innerHTML = items.map(item => {
-      const url   = item.link || item.url || '';
+      const url   = (item.link || item.url || '').split('?')[0];
       const thumb = item.thumbnail || item.enclosure?.link || '';
       const tags  = (item.categories || item.tags || []).slice(0, 3);
       const date  = formatDate(item.pubDate || item.published || '');

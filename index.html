@@ -375,23 +375,36 @@
     <nav class="foot-links">
       <a href="#learn-more" id="learn-more">Learn more</a>
       <a href="#contact" id="contact">Contact</a>
-      <a href="#privacy">Privacy</a>
+      <a href="privacy.html">Privacy</a>
     </nav>
   </footer>
 
 </div><!-- /wrap -->
 
 <script>
-  // ── Newsletter ────────────────────────────────────────────
-  function handleSubscribe(e) {
+  // ── Newsletter → Google Sheets ───────────────────────────
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_5KSDN-eHOs1pUOHrHW11F__LOKIgfnqxawRvV4zkfQ-2vcpFXgdvvehBYE_evsT1-A/exec';
+
+  async function handleSubscribe(e) {
     e.preventDefault();
     const input = document.getElementById('email-input');
-    const btn = e.target.querySelector('button');
+    const btn   = e.target.querySelector('button');
     const email = input.value.trim();
     if (!email) return;
-    btn.textContent = 'Done ✓';
+
+    btn.textContent = 'Sending…';
     btn.disabled = true;
     input.disabled = true;
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify({ email })
+      });
+    } catch {}
+
+    btn.textContent = 'Done ✓';
   }
 
   // ── Medium RSS feed ───────────────────────────────────────

@@ -179,24 +179,6 @@
       border-radius: 50%;
       background: var(--hair);
     }
-    .post-loading {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      padding: 48px 0;
-    }
-    .post-loading span {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--hair);
-      animation: pulse 1.2s ease-in-out infinite;
-    }
-    .post-loading span:nth-child(2) { animation-delay: .2s; }
-    .post-loading span:nth-child(3) { animation-delay: .4s; }
-    @keyframes pulse {
-      0%, 80%, 100% { opacity: .25; transform: scale(.8); }
-      40% { opacity: 1; transform: scale(1); }
-    }
 
     /* ── Newsletter ──────────────────────────────────────── */
     .news { text-align: center; padding: 66px 0 8px; }
@@ -345,11 +327,20 @@
     </a>
   </section>
 
-  <!-- Article list — loaded from Medium RSS -->
-  <section class="posts" id="posts" aria-label="Articles">
-    <div class="post-loading">
-      <span></span><span></span><span></span>
-    </div>
+  <!-- Article list — add new articles here -->
+  <section class="posts" aria-label="Articles">
+
+    <article class="post" onclick="window.open('https://medium.com/@ticktheboxkr/happy-happy-happy-05ced5306acc','_blank')">
+      <div class="thumb"></div>
+      <div class="post-body">
+        <h3 class="post-ttl">Happy happy happy</h3>
+        <p class="post-summary">This is a test</p>
+        <div class="post-meta">
+          <span class="post-date">Jun 2, 2026</span>
+        </div>
+      </div>
+    </article>
+
   </section>
 
   <!-- Newsletter -->
@@ -403,116 +394,6 @@
     btn.textContent = 'Done ✓';
   }
 
-  // ── Medium RSS feed ───────────────────────────────────────
-  const MEDIUM_USER = 'ticktheboxkr';
-  const MEDIUM_FEED = `https://medium.com/feed/@${MEDIUM_USER}`;
-
-  function stripHtml(html) {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || '';
-  }
-
-  function excerpt(text, max) {
-    const clean = stripHtml(text).replace(/\s+/g, ' ').trim();
-    return clean.length <= max ? clean : clean.slice(0, max).replace(/\s+\S*$/, '') + '…';
-  }
-
-  function formatDate(str) {
-    const d = new Date(str);
-    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  }
-
-  function renderPosts(items) {
-    const section = document.getElementById('posts');
-    if (!items || items.length === 0) {
-      section.innerHTML = '<p style="text-align:center;color:var(--mut);padding:40px 0">No articles yet. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Visit Medium →</a></p>';
-      return;
-    }
-    section.innerHTML = items.map(item => {
-      const url   = (item.link || item.url || '').split('?')[0];
-      const thumb = item.thumbnail || item.enclosure?.link || '';
-      const tags  = (item.categories || item.tags || []).slice(0, 3);
-      const date  = formatDate(item.pubDate || item.published || '');
-      const dek   = excerpt(item.description || item.content || '', 160);
-      const safeUrl = url.replace(/"/g, '&quot;');
-      const thumbHtml = thumb
-        ? `<img src="${thumb}" alt="" onerror="this.style.display='none'">`
-        : '';
-      const tagsHtml = tags.map(t => `<span class="tag">#${String(t).replace(/\s+/g,'')}</span>`).join('');
-      const metaHtml = tagsHtml
-        ? `${tagsHtml}<span class="dot"></span><span class="post-date">${date}</span>`
-        : `<span class="post-date">${date}</span>`;
-      return `
-        <article class="post" onclick="window.open('${safeUrl}','_blank')" role="link" tabindex="0"
-          onkeydown="if(event.key==='Enter')window.open('${safeUrl}','_blank')">
-          <div class="thumb">${thumbHtml}</div>
-          <div class="post-body">
-            <h3 class="post-ttl">${item.title}</h3>
-            ${dek ? `<p class="post-summary">${dek}</p>` : ''}
-            <div class="post-meta">${metaHtml}</div>
-          </div>
-        </article>`;
-    }).join('');
-  }
-
-  // Parse raw RSS/Atom XML → array of item objects
-  function parseXml(xmlStr) {
-    const doc   = new DOMParser().parseFromString(xmlStr, 'text/xml');
-    const items = [...doc.querySelectorAll('item, entry')];
-    return items.map(el => {
-      const text  = s => el.querySelector(s)?.textContent || '';
-      const attr  = (s, a) => el.querySelector(s)?.getAttribute(a) || '';
-      // thumbnail: <media:thumbnail> or <media:content> or first <img> in content
-      let thumb = attr('thumbnail', 'url') || attr('content[medium="image"]', 'url') || '';
-      if (!thumb) {
-        const html = text('description') || text('content') || text('encoded') || '';
-        const m = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-        if (m) thumb = m[1];
-      }
-      const cats = [...el.querySelectorAll('category')].map(c => c.textContent.trim()).filter(Boolean);
-      return {
-        title:       text('title'),
-        link:        text('link') || attr('link[rel="alternate"]', 'href') || attr('link', 'href'),
-        pubDate:     text('pubDate') || text('published') || text('updated'),
-        description: text('description') || text('summary'),
-        content:     text('content') || text('encoded'),
-        thumbnail:   thumb,
-        categories:  cats,
-      };
-    });
-  }
-
-  async function loadFeed() {
-    const errHtml = '<p style="text-align:center;color:var(--mut);padding:40px 0">Could not load articles. <a href="https://medium.com/@' + MEDIUM_USER + '" target="_blank" style="color:var(--ink)">Read on Medium →</a></p>';
-
-    const attempt = (url, transform) => {
-      const ctrl = new AbortController();
-      setTimeout(() => ctrl.abort(), 8000);
-      return fetch(url, { signal: ctrl.signal })
-        .then(r => r[transform === 'json' ? 'json' : 'text']())
-        .then(d => {
-          const items = transform === 'json'
-            ? (d.status === 'ok' ? d.items : null)
-            : parseXml(d);
-          if (!items?.length) throw new Error('empty');
-          return items;
-        });
-    };
-
-    try {
-      const items = await Promise.any([
-        attempt(`https://corsproxy.io/?${encodeURIComponent(MEDIUM_FEED)}`, 'text'),
-        attempt(`https://api.allorigins.win/raw?url=${encodeURIComponent(MEDIUM_FEED)}`, 'text'),
-        attempt(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(MEDIUM_FEED)}&count=20`, 'json'),
-      ]);
-      renderPosts(items);
-    } catch {
-      document.getElementById('posts').innerHTML = errHtml;
-    }
-  }
-
-  loadFeed();
 </script>
 
 </body>

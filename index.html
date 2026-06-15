@@ -338,17 +338,6 @@
 
   </section>
 
-  <!-- Newsletter -->
-  <section class="news" id="newsletter" aria-label="Newsletter signup">
-    <div class="news-lbl">Newsletter</div>
-    <h2 class="news-h">The Seoul Brief</h2>
-    <form class="news-form" onsubmit="handleSubscribe(event)">
-      <input class="field" type="email" id="email-input" placeholder="you@company.com" autocomplete="email" required />
-      <button class="cta" type="submit">Subscribe</button>
-    </form>
-    <p class="news-fine">No spam — just insightful emails when there's something worth sending.</p>
-  </section>
-
   <!-- Footer -->
   <footer class="foot">
     <div class="foot-brand">HowtoCEOinKorea<span class="foot-com">.com</span></div>
@@ -365,31 +354,6 @@
 </div><!-- /wrap -->
 
 <script>
-  // ── Newsletter → Google Sheets ───────────────────────────
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_5KSDN-eHOs1pUOHrHW11F__LOKIgfnqxawRvV4zkfQ-2vcpFXgdvvehBYE_evsT1-A/exec';
-
-  async function handleSubscribe(e) {
-    e.preventDefault();
-    const input = document.getElementById('email-input');
-    const btn   = e.target.querySelector('button');
-    const email = input.value.trim();
-    if (!email) return;
-
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-    input.disabled = true;
-
-    try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: JSON.stringify({ email })
-      });
-    } catch {}
-
-    btn.textContent = 'Done ✓';
-  }
-
 </script>
 
 </body>

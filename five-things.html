@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5 Things You Need to Know Before Starting a Business in Korea — HowtoCEOinKorea</title>
+  <meta name="description" content="한국인인 내가 외국인 투자자와 사업가에게 알려주고 싶은 모든 것." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ─────────────────────────────────────────── */
+    :root {
+      --ink:   #15120d;
+      --paper: #fbfbf9;
+      --mut:   #6c675e;
+      --hair:  rgba(20, 16, 10, 0.14);
+    }
+
+    /* ── Reset / Base ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Public Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ── Masthead ────────────────────────────────────────── */
+    .mast {
+      text-align: center;
+      padding: 48px 28px 28px;
+    }
+    .nameplate {
+      font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13.5px;
+      color: var(--mut);
+      text-decoration: underline;
+    }
+    .back-link:hover { color: var(--ink); }
+
+    /* ── Article head ────────────────────────────────────── */
+    .a-head { padding: 8px 0 36px; border-bottom: 1px solid var(--hair); }
+    .a-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.012em;
+      margin: 0;
+    }
+    .a-sub {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--mut);
+      margin: 14px 0 0;
+      line-height: 1.5;
+    }
+    .a-status {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #a1631f;
+      background: rgba(196,120,25,0.1);
+      padding: 5px 10px;
+    }
+
+    /* ── Controls: section nav + view toggle ────────────── */
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--paper);
+      padding: 18px 0;
+      border-bottom: 1px solid var(--hair);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .sec-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .pill {
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--mut);
+      background: transparent;
+      border: 1px solid var(--hair);
+      padding: 7px 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pill:hover { color: var(--ink); border-color: rgba(20,16,10,0.3); }
+    .pill.active { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+    .view-toggle {
+      display: flex;
+      font-size: 12px;
+      color: var(--mut);
+      border: 1px solid var(--hair);
+    }
+    .view-toggle button {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--mut);
+      background: transparent;
+      border: none;
+      padding: 7px 12px;
+      cursor: pointer;
+    }
+    .view-toggle button.active { color: var(--paper); background: var(--ink); }
+
+    /* ── Sections ────────────────────────────────────────── */
+    .a-section { padding: 48px 0; border-bottom: 1px solid var(--hair); scroll-margin-top: 78px; }
+    .a-section:last-of-type { border-bottom: none; }
+    .article-body[data-view="tabs"] .a-section { display: none; padding-top: 36px; }
+    .article-body[data-view="tabs"] .a-section.active { display: block; }
+
+    .a-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #a1631f;
+    }
+    .a-h2 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin: 8px 0 22px;
+    }
+    .a-h3 {
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 19px;
+      font-weight: 600;
+      margin: 30px 0 10px;
+    }
+    .a-h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 24px 0 10px;
+      color: var(--mut);
+    }
+    .a-section p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin: 0 0 16px;
+    }
+    .a-section p:last-child { margin-bottom: 0; }
+
+    .a-source {
+      margin-top: 24px;
+      padding: 14px 16px;
+      background: rgba(20,16,10,0.03);
+      border: 1px solid var(--hair);
+      font-size: 12.5px;
+      color: var(--mut);
+      word-break: break-all;
+    }
+    .a-source strong {
+      display: block;
+      color: var(--ink);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .a-source a { text-decoration: underline; }
+    .a-source a:hover { color: var(--ink); }
+
+    /* ── CTA ─────────────────────────────────────────────── */
+    .a-cta {
+      text-align: center;
+      padding: 56px 0;
+    }
+    .a-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 15px 28px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .a-cta-btn:hover { opacity: 0.82; }
+
+    /* ── Footer ──────────────────────────────────────────── */
+    .foot {
+      border-top: 1px solid var(--ink);
+      margin-top: 40px;
+      padding: 40px 0 56px;
+      text-align: center;
+    }
+    .foot-copyright {
+      font-size: 12px;
+      color: var(--mut);
+    }
+
+    @media (max-width: 560px) {
+      .a-title { font-size: 27px; }
+      .a-h2 { font-size: 22px; }
+      .controls { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div class="nameplate">HowtoCEOinKorea<span>.com</span></div>
+    <a class="back-link" href="index.html">← Back to all articles</a>
+  </header>
+
+  <div class="a-head">
+    <h1 class="a-title">5 Things You Need to Know Before Starting a Business in Korea</h1>
+    <p class="a-sub">한국인인 내가 외국인 투자자와 사업가에게 알려주고 싶은 모든 것</p>
+    <span class="a-status">Work in progress</span>
+  </div>
+
+  <div class="controls">
+    <nav class="sec-nav" aria-label="Jump to section">
+      <button class="pill" data-target="sec-why">WHY</button>
+      <button class="pill" data-target="sec-who">WHO</button>
+      <button class="pill" data-target="sec-what">WHAT</button>
+      <button class="pill" data-target="sec-how">HOW</button>
+      <button class="pill" data-target="sec-where">WHERE</button>
+    </nav>
+    <div class="view-toggle" role="group" aria-label="View mode">
+      <button data-view="all" class="active">Read all</button>
+      <button data-view="tabs">By section</button>
+    </div>
+  </div>
+
+  <div class="article-body" data-view="all">
+
+    <section class="a-section active" id="sec-why">
+      <div class="a-eyebrow">1 · Why</div>
+      <h2 class="a-h2">Welcome to the Ultimate Trend Battlefield</h2>
+      <p>In Korea, high social conformity and shared lifestyle aspirations compress product lifecycles—trends that take years elsewhere peak here within months. A hyper-competitive local market demands constant innovation just to survive.</p>
+      <p>This speed isn't limited to consumer trends. Korean conglomerates move from first meeting to proof-of-concept faster than most foreign companies expect. Near-universal connectivity compresses digital adoption from years into months. Across industries, the common thread is a radically short feedback loop: you learn whether your business works here faster than almost anywhere else.</p>
+
+      <h3 class="a-h3">An Ultra-Dense, Efficient Market</h3>
+      <p>While South Korea's total population of 51.6 million is compact, over 92% is urbanized. At its center is Seoul, which packs roughly 16,000 people per km²—far surpassing New York City's 10,400. This dense capital region anchors a massive, hyper-connected consumer cluster of 26 million people, second only to Greater Tokyo.</p>
+      <p>This extreme concentration drastically reduces logistics overhead and marketing fragmentation. Supported by world-class digital infrastructure, this setup allows companies to scale operations and turn over capital at a speed that is mathematically impossible in larger, more spread-out markets.</p>
+
+      <h3 class="a-h3">Developed-Economy Purchasing Power</h3>
+      <p>With a nominal GDP of $1.86 trillion and a per-capita GDP of $36,000, South Korea is a top-15 global economy. More importantly, it features a diverse consumption spectrum. The market is deep enough to sustain high-margin, luxury brands at the top, yet sophisticated enough to rapidly scale volume-driven, cost-efficient platforms at the other end.</p>
+      <p>This multi-layered purchasing power allows businesses to successfully deploy and test almost any pricing strategy, from premium to value-focused models.</p>
+      <p>Backed by the regional influence of Korean culture, success in Seoul extends beyond a single market—it becomes a launchpad into the broader Asian market. A business that proves itself here gains both operational resilience and a scalable model for regional expansion.</p>
+    </section>
+
+    <section class="a-section" id="sec-who">
+      <div class="a-eyebrow">2 · Who</div>
+      <h2 class="a-h2">How Competition, Status, and Efficiency Shape Purchasing Decisions</h2>
+      <h3 class="a-h3">몹시 바쁘고 아름답고 생산적이며 insecure한 사람들</h3>
+      <p>평균적인 한국인은 어릴 땐 영어, 10대엔 수능, 20대엔 취업전쟁, 30대엔 자산경쟁과 자녀 사교육으로 일평생에 걸쳐 배틀을 진행 중입니다. 이 압박을 버티는 방식이 곧 소비 패턴으로 나타납니다.</p>
+      <p>연휴마다 기형적으로 많은 인구가 해외로 빠져나가고, 외모는 사회적 생존의 스펙이 되어 인당 뷰티·메디컬 지출이 세계 최고 수준을 기록합니다. 번아웃을 즉각적인 보상성 소비로 해소하는 경향이 강하며, 한국 소비자는 계층 이동의 사다리라 믿는 영어와 사교육에 가구 소득의 상당 부분을 아낌없이 쏟아부으며, 좁은 영토와 치열한 경쟁에서 오는 압박감을 해소하기 위해 연휴마다 수많은 인구가 해외여행을 떠납니다.</p>
+      <p>외모를 사회적 생존과 커리어의 필수 스펙으로 취급할 정도로 타인의 시선에 예민하여 인당 뷰티와 메디컬 지출액이 세계 최고 수준을 기록하고 있으며, 입시부터 부동산까지 이어지는 무한 서바이벌의 번아웃을 즉각적인 보상성 소비로 해소하는 경향이 강합니다. 자산의 70% 이상이 부동산에 묶여 있어 어느 지역, 어느 브랜드 아파트에 사느냐가 곧 그 사람의 신분증 역할을 하고 있으며, 이 무리한 대열에 합류하느라 가계부채 세계 1위라는 무거운 구조적 그늘을 짊어지고 있습니다.</p>
+    </section>
+
+    <section class="a-section" id="sec-what">
+      <div class="a-eyebrow">3 · What</div>
+      <h2 class="a-h2">Where the Money Is Moving</h2>
+      <h3 class="a-h3">Key Growth Sectors and Structural Shifts in the Korean Economy</h3>
+      <p>최근 5년간 한국 서비스업 실질 GDP 성장을 견인한 핵심 엔진은 기술 대전환과 인구 구조 변화의 수혜를 입은 정보통신업과 보건·사회복지 서비스업입니다. 인공지능(AI) 확산과 클라우드 전환을 정면으로 맞이한 정보통신업은 분기 생산 규모가 29조 1,000억 원에서 38조 원으로 치솟으며 5년간 약 30.6%라는 압도적인 누적 성장률을 기록했고, 급격한 고령화 기류를 탄 보건·복지 서비스업 역시 경기 변동과 무관하게 26조 3,000억 원에서 34조 원으로 29.3% 급성장했습니다. 여기에 쿠팡으로 대표되는 이커머스 생태계의 폭발이 스마트 물류 인프라 투자로 이어지면서, 뒤를 받치는 운수 및 창고업이 19조 원에서 24조 원으로 26.3% 동반 성장하며 내수 시장의 고부가가치화를 이끌었습니다.</p>
+      <p>반면 외형적인 지분은 크지만 실질적인 부가가치 창출이 멈춰 선 전통적 내수 섹터들의 그늘은 한층 짙어졌습니다. 서비스업 중 최대 볼륨(약 58조 원)을 차지하는 도소매 및 숙박음식점업은 오프라인 소비 둔화와 내수 부진의 직격탄을 맞으며 5년간 누적 성장률이 7.8%라는 저조한 성적표를 남겼습니다. 여기에 가계부채 부담과 고금리 장기화로 인해 직격탄을 맞은 부동산업 역시 분기 약 44조 원 규모에 그대로 갇힌 채 5개년 누적 성장률이 5% 안팎의 극심한 정체 늪에 빠져 있습니다. 이 극명한 대비는 한국 경제의 실질적인 성장 동력이 첨단 디지털 기술과 인프라 서비스로 완전히 이동했음을 숫자로 방증합니다.</p>
+      <div class="a-source">
+        <strong>Data source</strong>
+        <a href="https://kosis.kr/statHtml/statHtml.do?sso=ok&returnurl=https%3A%2F%2Fkosis.kr%3A443%2FstatHtml%2FstatHtml.do%3Fconn_path%3DI2%26tblId%3DDT_1B04005N%26orgId%3D101%26" target="_blank" rel="noopener">KOSIS — 국가통계포털</a>
+      </div>
+    </section>
+
+    <section class="a-section" id="sec-how">
+      <div class="a-eyebrow">4 · How</div>
+      <h2 class="a-h2">Taxes, Incentives &amp; Government Support</h2>
+      <h3 class="a-h3">What Foreign Entrepreneurs Need to Know Before Entering Korea</h3>
+      <p>한국의 법인세는 과세표준에 따라 최저 9%에서 최고 24%의 누진 구조이며, 여기에 지방소득세 10%가 추가로 붙습니다. 개인사업자라면 6%에서 최고 45%의 종합소득세 구간이 적용되지만, 외국인은 최초 과세연도부터 최대 20년간 19% 단일세율을 선택할 수 있습니다.</p>
+      <p>세율 자체는 글로벌 평균 수준이지만, 진입 형태와 업종에 따라 그림이 완전히 달라집니다. 경제자유구역 내 입주 기업은 최대 5년간 법인세 전액 면제, 이후 2년간 50% 감면을 받을 수 있고, 외국인투자기업은 업종과 지역 조건에 따라 최대 10년간 세제 혜택 신청이 가능합니다. 부가세는 10% 단일세율이며 수출 기업은 환급 대상입니다.</p>
+      <p>한국 정부의 외투기업 유치 의지는 숫자로도 드러납니다. 외국인 투자 현금 지원 예산은 2023년 대비 2024년에 4배 증가했고, 2025년엔 2,000억 원 규모로 더 확대됐습니다. 글로벌 FDI가 감소하는 추세에서도 한국 FDI는 오히려 5.67% 증가했는데, 이 공격적인 지원 정책이 배경에 있습니다. 인베스트코리아, KOTRA, 해당 연도 정부지원정책과 외국인투자촉진법상 혜택까지 꼼꼼히 확인하고 들어오면 세금과 초기 비용에서 상당한 이득을 볼 수 있습니다.</p>
+    </section>
+
+    <section class="a-section" id="sec-where">
+      <div class="a-eyebrow">5 · Where</div>
+      <h2 class="a-h2">Geography, History &amp; Institutions</h2>
+      <h3 class="a-h3">The Political, Social, and Institutional Context Behind Korean Business</h3>
+      <div class="a-h4">Governance &amp; Politics</div>
+      <p>정치적으로는 진보와 보수가 엎치락뒤치락 치열하게 경쟁하는 과정에서 오히려 거시적 안정을 찾아온 역동적인 시스템을 가지고 있습니다. 1990년대 이후 진보 정당들은 사회복지를 대폭 늘리고 공공 청렴도를 선진국 수준으로 끌어올렸으며, 보수 정당들은 스타트업 육성과 기업 지원을 통해 경제 활성화를 주도하며 시장의 균형을 맞춰왔습니다. 그러나 최근 계엄 사태를 거치면서 보수 진영에 대한 민심이 크게 위축된 반면, 권위주의로의 회귀를 거부하는 민주 세력의 결집성은 그 어느 때보다 강력해진 상태입니다.</p>
+      <p>시장의 실무와 소비를 주도하는 1980년대생 이후 세대는 이러한 민주적 절차를 공기처럼 당연하게 여기기 때문에, 기업의 갑질이나 불투명한 거버넌스에 대해서도 매서운 보이콧으로 대응하며 시장 전체의 컴플라이언스 기준을 세계 최고 수준으로 강제하고 있습니다.</p>
+    </section>
+
+  </div>
+
+  <div class="a-cta">
+    <a class="a-cta-btn" href="about.html#about-contact">Request a Free Exploratory Report on the Korean Market</a>
+  </div>
+
+  <footer class="foot">
+    <p class="foot-copyright">© 2026 mintcondition. All rights reserved.</p>
+  </footer>
+
+</div><!-- /wrap -->
+
+<script>
+  (function () {
+    var body = document.querySelector('.article-body');
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.a-section'));
+    var navBtns = Array.prototype.slice.call(document.querySelectorAll('.sec-nav .pill'));
+    var viewBtns = Array.prototype.slice.call(document.querySelectorAll('.view-toggle button'));
+    var view = 'all';
+
+    function setActiveSection(id) {
+      sections.forEach(function (s) { s.classList.toggle('active', s.id === id); });
+      navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === id); });
+    }
+
+    navBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.dataset.target;
+        if (view === 'tabs') {
+          setActiveSection(id);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    viewBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        view = btn.dataset.view;
+        body.setAttribute('data-view', view);
+        viewBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        if (view === 'tabs') {
+          var current = sections.find(function (s) { return s.classList.contains('active'); }) || sections[0];
+          setActiveSection(current.id);
+        }
+      });
+    });
+
+    // Highlight the nav pill matching the section in view while reading straight through
+    var observer = new IntersectionObserver(function (entries) {
+      if (view !== 'all') return;
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === entry.target.id); });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(function (s) { observer.observe(s); });
+  })();
+</script>
+
+</body>
+</html>

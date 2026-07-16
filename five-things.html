@@ -74,19 +74,7 @@
       margin: 14px 0 0;
       line-height: 1.5;
     }
-    .a-status {
-      display: inline-block;
-      margin-top: 18px;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #a1631f;
-      background: rgba(196,120,25,0.1);
-      padding: 5px 10px;
-    }
-
-    /* ── Controls: section nav + view toggle ────────────── */
+    /* ── Controls: section nav (anchors) ─────────────────── */
     .controls {
       position: sticky;
       top: 0;
@@ -94,11 +82,6 @@
       background: var(--paper);
       padding: 18px 0;
       border-bottom: 1px solid var(--hair);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
     }
     .sec-nav {
       display: flex;
@@ -119,29 +102,10 @@
     }
     .pill:hover { color: var(--ink); border-color: rgba(20,16,10,0.3); }
     .pill.active { color: var(--paper); background: var(--ink); border-color: var(--ink); }
-    .view-toggle {
-      display: flex;
-      font-size: 12px;
-      color: var(--mut);
-      border: 1px solid var(--hair);
-    }
-    .view-toggle button {
-      font-family: inherit;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--mut);
-      background: transparent;
-      border: none;
-      padding: 7px 12px;
-      cursor: pointer;
-    }
-    .view-toggle button.active { color: var(--paper); background: var(--ink); }
 
     /* ── Sections ────────────────────────────────────────── */
     .a-section { padding: 48px 0; border-bottom: 1px solid var(--hair); scroll-margin-top: 78px; }
     .a-section:last-of-type { border-bottom: none; }
-    .article-body[data-view="tabs"] .a-section { display: none; padding-top: 36px; }
-    .article-body[data-view="tabs"] .a-section.active { display: block; }
 
     .a-eyebrow {
       font-size: 12px;
@@ -180,22 +144,33 @@
 
     .a-source {
       margin-top: 24px;
-      padding: 14px 16px;
-      background: rgba(20,16,10,0.03);
       border: 1px solid var(--hair);
       font-size: 12.5px;
       color: var(--mut);
-      word-break: break-all;
     }
-    .a-source strong {
-      display: block;
-      color: var(--ink);
+    .a-source summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 10px 16px;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 6px;
       font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
+    .a-source summary::-webkit-details-marker { display: none; }
+    .a-source summary::after {
+      content: '+';
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--mut);
+    }
+    .a-source[open] summary::after { content: '−'; }
+    .a-source summary:hover { background: rgba(20,16,10,0.03); }
+    .a-source-body { padding: 0 16px 14px; word-break: break-all; }
     .a-source a { text-decoration: underline; }
     .a-source a:hover { color: var(--ink); }
 
@@ -251,26 +226,21 @@
   <div class="a-head">
     <h1 class="a-title">5 Things You Need to Know Before Starting a Business in Korea</h1>
     <p class="a-sub">한국인인 내가 외국인 투자자와 사업가에게 알려주고 싶은 모든 것</p>
-    <span class="a-status">Work in progress</span>
   </div>
 
   <div class="controls">
     <nav class="sec-nav" aria-label="Jump to section">
-      <button class="pill" data-target="sec-why">WHY</button>
-      <button class="pill" data-target="sec-who">WHO</button>
-      <button class="pill" data-target="sec-what">WHAT</button>
-      <button class="pill" data-target="sec-how">HOW</button>
-      <button class="pill" data-target="sec-where">WHERE</button>
+      <a class="pill" data-target="sec-why" href="#sec-why">WHY</a>
+      <a class="pill" data-target="sec-who" href="#sec-who">WHO</a>
+      <a class="pill" data-target="sec-what" href="#sec-what">WHAT</a>
+      <a class="pill" data-target="sec-how" href="#sec-how">HOW</a>
+      <a class="pill" data-target="sec-where" href="#sec-where">WHERE</a>
     </nav>
-    <div class="view-toggle" role="group" aria-label="View mode">
-      <button data-view="all" class="active">Read all</button>
-      <button data-view="tabs">By section</button>
-    </div>
   </div>
 
-  <div class="article-body" data-view="all">
+  <div class="article-body">
 
-    <section class="a-section active" id="sec-why">
+    <section class="a-section" id="sec-why">
       <div class="a-eyebrow">1 · Why</div>
       <h2 class="a-h2">Welcome to the Ultimate Trend Battlefield</h2>
       <p>In Korea, high social conformity and shared lifestyle aspirations compress product lifecycles—trends that take years elsewhere peak here within months. A hyper-competitive local market demands constant innovation just to survive.</p>
@@ -301,10 +271,12 @@
       <h3 class="a-h3">Key Growth Sectors and Structural Shifts in the Korean Economy</h3>
       <p>최근 5년간 한국 서비스업 실질 GDP 성장을 견인한 핵심 엔진은 기술 대전환과 인구 구조 변화의 수혜를 입은 정보통신업과 보건·사회복지 서비스업입니다. 인공지능(AI) 확산과 클라우드 전환을 정면으로 맞이한 정보통신업은 분기 생산 규모가 29조 1,000억 원에서 38조 원으로 치솟으며 5년간 약 30.6%라는 압도적인 누적 성장률을 기록했고, 급격한 고령화 기류를 탄 보건·복지 서비스업 역시 경기 변동과 무관하게 26조 3,000억 원에서 34조 원으로 29.3% 급성장했습니다. 여기에 쿠팡으로 대표되는 이커머스 생태계의 폭발이 스마트 물류 인프라 투자로 이어지면서, 뒤를 받치는 운수 및 창고업이 19조 원에서 24조 원으로 26.3% 동반 성장하며 내수 시장의 고부가가치화를 이끌었습니다.</p>
       <p>반면 외형적인 지분은 크지만 실질적인 부가가치 창출이 멈춰 선 전통적 내수 섹터들의 그늘은 한층 짙어졌습니다. 서비스업 중 최대 볼륨(약 58조 원)을 차지하는 도소매 및 숙박음식점업은 오프라인 소비 둔화와 내수 부진의 직격탄을 맞으며 5년간 누적 성장률이 7.8%라는 저조한 성적표를 남겼습니다. 여기에 가계부채 부담과 고금리 장기화로 인해 직격탄을 맞은 부동산업 역시 분기 약 44조 원 규모에 그대로 갇힌 채 5개년 누적 성장률이 5% 안팎의 극심한 정체 늪에 빠져 있습니다. 이 극명한 대비는 한국 경제의 실질적인 성장 동력이 첨단 디지털 기술과 인프라 서비스로 완전히 이동했음을 숫자로 방증합니다.</p>
-      <div class="a-source">
-        <strong>Data source</strong>
-        <a href="https://kosis.kr/statHtml/statHtml.do?sso=ok&returnurl=https%3A%2F%2Fkosis.kr%3A443%2FstatHtml%2FstatHtml.do%3Fconn_path%3DI2%26tblId%3DDT_1B04005N%26orgId%3D101%26" target="_blank" rel="noopener">KOSIS — 국가통계포털</a>
-      </div>
+      <details class="a-source">
+        <summary>Data source</summary>
+        <div class="a-source-body">
+          <a href="https://kosis.kr/statHtml/statHtml.do?sso=ok&returnurl=https%3A%2F%2Fkosis.kr%3A443%2FstatHtml%2FstatHtml.do%3Fconn_path%3DI2%26tblId%3DDT_1B04005N%26orgId%3D101%26" target="_blank" rel="noopener">KOSIS — 국가통계포털</a>
+        </div>
+      </details>
     </section>
 
     <section class="a-section" id="sec-how">
@@ -339,44 +311,19 @@
 
 <script>
   (function () {
-    var body = document.querySelector('.article-body');
     var sections = Array.prototype.slice.call(document.querySelectorAll('.a-section'));
     var navBtns = Array.prototype.slice.call(document.querySelectorAll('.sec-nav .pill'));
-    var viewBtns = Array.prototype.slice.call(document.querySelectorAll('.view-toggle button'));
-    var view = 'all';
 
-    function setActiveSection(id) {
-      sections.forEach(function (s) { s.classList.toggle('active', s.id === id); });
-      navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === id); });
-    }
-
+    // Smooth-scroll for the anchor pills
     navBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var id = btn.dataset.target;
-        if (view === 'tabs') {
-          setActiveSection(id);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById(btn.dataset.target).scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
 
-    viewBtns.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        view = btn.dataset.view;
-        body.setAttribute('data-view', view);
-        viewBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
-        if (view === 'tabs') {
-          var current = sections.find(function (s) { return s.classList.contains('active'); }) || sections[0];
-          setActiveSection(current.id);
-        }
-      });
-    });
-
-    // Highlight the nav pill matching the section in view while reading straight through
+    // Highlight the nav pill matching the section currently in view
     var observer = new IntersectionObserver(function (entries) {
-      if (view !== 'all') return;
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === entry.target.id); });

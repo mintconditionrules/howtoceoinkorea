@@ -74,8 +74,9 @@
     .a-hero img {
       display: block;
       width: 100%;
-      height: 220px;
+      height: 260px;
       object-fit: cover;
+      object-position: center 78%;
     }
     .a-hero-credit {
       position: absolute;
@@ -184,6 +185,9 @@
     .a-source-body { padding: 0 16px 14px; word-break: break-all; }
     .a-source a { text-decoration: underline; }
     .a-source a:hover { color: var(--ink); }
+    .ref-list { margin: 0; padding-left: 18px; }
+    .ref-list li { margin-bottom: 10px; line-height: 1.5; }
+    .ref-list li:last-child { margin-bottom: 0; }
 
     /* ── CTA ─────────────────────────────────────────────── */
     .a-cta {
@@ -281,6 +285,7 @@
       <a class="pill" data-target="sec-what" href="#sec-what">WHAT</a>
       <a class="pill" data-target="sec-how" href="#sec-how">HOW</a>
       <a class="pill" data-target="sec-where" href="#sec-where">WHERE</a>
+      <a class="pill" data-target="sec-conclusion" href="#sec-conclusion">CONCLUSION</a>
     </nav>
   </div>
 
@@ -305,10 +310,26 @@
     <section class="a-section" id="sec-who">
       <div class="a-eyebrow">2 · Who</div>
       <h2 class="a-h2">How Competition, Status, and Efficiency Shape Purchasing Decisions</h2>
-      <h3 class="a-h3">몹시 바쁘고 아름답고 생산적이며 insecure한 사람들</h3>
-      <p>평균적인 한국인은 어릴 땐 영어, 10대엔 수능, 20대엔 취업전쟁, 30대엔 자산경쟁과 자녀 사교육으로 일평생에 걸쳐 배틀을 진행 중입니다. 이 압박을 버티는 방식이 곧 소비 패턴으로 나타납니다.</p>
-      <p>연휴마다 기형적으로 많은 인구가 해외로 빠져나가고, 외모는 사회적 생존의 스펙이 되어 인당 뷰티·메디컬 지출이 세계 최고 수준을 기록합니다. 번아웃을 즉각적인 보상성 소비로 해소하는 경향이 강하며, 한국 소비자는 계층 이동의 사다리라 믿는 영어와 사교육에 가구 소득의 상당 부분을 아낌없이 쏟아부으며, 좁은 영토와 치열한 경쟁에서 오는 압박감을 해소하기 위해 연휴마다 수많은 인구가 해외여행을 떠납니다.</p>
-      <p>외모를 사회적 생존과 커리어의 필수 스펙으로 취급할 정도로 타인의 시선에 예민하여 인당 뷰티와 메디컬 지출액이 세계 최고 수준을 기록하고 있으며, 입시부터 부동산까지 이어지는 무한 서바이벌의 번아웃을 즉각적인 보상성 소비로 해소하는 경향이 강합니다. 자산의 70% 이상이 부동산에 묶여 있어 어느 지역, 어느 브랜드 아파트에 사느냐가 곧 그 사람의 신분증 역할을 하고 있으며, 이 무리한 대열에 합류하느라 가계부채 세계 1위라는 무거운 구조적 그늘을 짊어지고 있습니다.</p>
+      <h3 class="a-h3">Busy, beautiful, productive — and deeply insecure</h3>
+      <p>The average Korean's life is structured as a series of competitions: English education in early childhood, university entrance exams in the teens, the job market battle in the twenties, then asset accumulation and children's education from the thirties onward. How Koreans cope with this pressure is precisely what shapes their consumption.</p>
+      <p>The numbers on education tell the story. Korea spent 27.5 trillion won (approx. USD 20 billion) on private tutoring for K-12 students in 2025, with a participation rate of 75.7%; among participating students, monthly spending averaged 604,000 won — crossing the 600,000-won mark for the first time.¹ The result: 70.6% of Koreans aged 25–34 hold a tertiary degree, the highest rate in the OECD.² Education is not a preference here; it is the socially agreed-upon ladder of mobility.</p>
+      <p>Appearance is treated as an investment with comparable seriousness. Korea's beauty and personal care market reached USD 13 billion in 2024, with dermocosmetics — clinically backed, results-oriented products — growing 13% in a single year, reflecting a consumer base that approaches skincare as efficacy-driven self-investment rather than indulgence.³ Looks are widely perceived as a practical variable in employment and social life, placing beauty and medical spending in the category of maintenance, not luxury.</p>
+      <p>The pressure also escapes outward. A record 29.55 million Koreans traveled abroad in 2025 — roughly 57% of the population in a single year — surpassing the pre-pandemic peak.⁴ Burnout is routinely resolved through immediate, compensatory consumption.</p>
+      <p>And at the top of the competitive pyramid sits real estate. 75.8% of the average Korean household's assets are held in non-financial form — overwhelmingly real estate⁵ — and one's neighborhood and apartment brand function as de facto social ID. The cost of joining this race is visible in the macro data: household debt peaked above 100% of GDP in 2021 — among the highest levels in the world — and still stood at 89.4% as of Q3 2025.⁶</p>
+      <p>Korean consumers, in short, combine high purchasing power with high willingness to pay — but their spending is less about pleasure than about survival strategy. The question that opens their wallets is not "is this enjoyable?" but "what edge does this give me in the competition?"</p>
+      <details class="a-source">
+        <summary>References</summary>
+        <div class="a-source-body">
+          <ol class="ref-list">
+            <li>National Data Agency &amp; Ministry of Education, <em>2025 Private Education Expenditures Survey of Elementary, Middle and High School Students</em>, official release, 12 Mar 2026. <a href="https://mods.go.kr/board.es?act=view&bid=245&list_no=443953&mid=a10301010000" target="_blank" rel="noopener">Link</a></li>
+            <li>OECD, <em>Education at a Glance 2025</em>, Korea country note. <a href="https://www.oecd.org/en/publications/education-at-a-glance-2025_ac9cf3c2-en.html" target="_blank" rel="noopener">Link</a></li>
+            <li>Euromonitor International, <em>2025 Asia Pacific Beauty: What's Driving Growth in China, Japan and South Korea</em>, Aug 2025. <a href="https://www.euromonitor.com/article/2025-asia-pacific-beauty-whats-driving-growth-in-china-japan-and-south-korea" target="_blank" rel="noopener">Link</a></li>
+            <li>Korea Tourism Organization, Korea Tourism Data Lab, National Outbound Travelers (official tourism statistics based on Ministry of Justice immigration data), 2025 annual figures. <a href="https://datalab.visitkorea.or.kr/datalab/portal/nat/getOseaTourForm.do" target="_blank" rel="noopener">Link</a></li>
+            <li>National Data Agency, Bank of Korea &amp; Financial Supervisory Service, <em>2025 Survey of Household Finances and Living Conditions</em>, official release, 4 Dec 2025. <a href="https://mods.go.kr/board.es?mid=a10301010000&bid=215&list_no=439535&act=view&mainXml=Y" target="_blank" rel="noopener">Link</a></li>
+            <li>Bank for International Settlements, Total Credit to Households and NPISHs, Korea (via FRED, Federal Reserve Bank of St. Louis). <a href="https://fred.stlouisfed.org/series/QKRHAM770A" target="_blank" rel="noopener">Link</a></li>
+          </ol>
+        </div>
+      </details>
     </section>
 
     <section class="a-section" id="sec-what">
@@ -341,6 +362,14 @@
       <div class="a-h4">Governance &amp; Politics</div>
       <p>정치적으로는 진보와 보수가 엎치락뒤치락 치열하게 경쟁하는 과정에서 오히려 거시적 안정을 찾아온 역동적인 시스템을 가지고 있습니다. 1990년대 이후 진보 정당들은 사회복지를 대폭 늘리고 공공 청렴도를 선진국 수준으로 끌어올렸으며, 보수 정당들은 스타트업 육성과 기업 지원을 통해 경제 활성화를 주도하며 시장의 균형을 맞춰왔습니다. 그러나 최근 계엄 사태를 거치면서 보수 진영에 대한 민심이 크게 위축된 반면, 권위주의로의 회귀를 거부하는 민주 세력의 결집성은 그 어느 때보다 강력해진 상태입니다.</p>
       <p>시장의 실무와 소비를 주도하는 1980년대생 이후 세대는 이러한 민주적 절차를 공기처럼 당연하게 여기기 때문에, 기업의 갑질이나 불투명한 거버넌스에 대해서도 매서운 보이콧으로 대응하며 시장 전체의 컴플라이언스 기준을 세계 최고 수준으로 강제하고 있습니다.</p>
+    </section>
+
+    <section class="a-section" id="sec-conclusion">
+      <div class="a-eyebrow">6 · Conclusion</div>
+      <h2 class="a-h2">Conclusion</h2>
+      <p>[Placeholder — full conclusion to come.] Korea rewards founders who move fast, read the room, and respect the compliance bar the market has already set for itself.</p>
+      <p>The five forces above — why now, who you're selling to, what's actually growing, how the incentives work, and where the institutions stand — aren't separate chapters so much as one operating environment.</p>
+      <p>Get any one of them wrong and the other four won't save you. Get them right, and Seoul stops being a hard market to crack and starts looking like the fastest feedback loop in Asia.</p>
     </section>
 
   </div>

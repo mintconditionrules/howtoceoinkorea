@@ -96,8 +96,7 @@
       color: var(--mut);
       background: none;
       border: none;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+      text-decoration: none;
       padding: 0;
       cursor: pointer;
       transition: color 0.15s;
@@ -154,6 +153,9 @@
     .lang-ko { display: none; }
     .article-body[data-lang="ko"] .lang-en { display: none; }
     .article-body[data-lang="ko"] .lang-ko { display: block; }
+    .h-lang-ko { display: none; }
+    .article-body[data-lang="ko"] .h-lang-en { display: none; }
+    .article-body[data-lang="ko"] .h-lang-ko { display: inline; }
     .ref-mark {
       color: #a1631f;
       font-weight: 700;
@@ -301,17 +303,17 @@
   <div class="article-body" data-lang="en">
 
     <section class="a-section" id="sec-why">
-      <h2 class="a-h2">Welcome to the Ultimate Trend Battlefield</h2>
+      <h2 class="a-h2"><span class="h-lang-en">Welcome to the Ultimate Trend Battlefield</span><span class="h-lang-ko" hidden>궁극의 트렌드 전쟁터에 오신 것을 환영합니다</span></h2>
       <p class="lang-en">In Korea, high social conformity and shared lifestyle aspirations compress product lifecycles—trends that take years elsewhere peak here within months. A hyper-competitive local market demands constant innovation just to survive.</p>
       <p class="lang-ko" hidden>한국에서는 강한 사회적 동조 성향과 비슷한 라이프스타일 지향이 맞물리면서 제품 수명 주기가 압축됩니다—다른 곳에서는 몇 년에 걸쳐 정점을 찍는 트렌드가 여기서는 몇 달 만에 지나갑니다. 극도로 경쟁적인 로컬 시장에서는 살아남기 위해서라도 끊임없는 혁신이 필요합니다.</p>
       <p class="lang-en">This speed isn't limited to consumer trends. The same dynamic shapes the business environment: companies can introduce new products, gather feedback, and refine offerings in compressed cycles. Across industries, the defining characteristic is the same—Korea reveals whether your business works faster than almost anywhere else.</p>
       <p class="lang-ko" hidden>이런 속도감은 소비 트렌드에만 국한되지 않습니다. 같은 역학이 비즈니스 환경 전체를 지배합니다: 기업들은 압축된 주기 안에서 신제품을 내놓고, 피드백을 받고, 제품을 다듬을 수 있습니다. 업종을 막론하고 핵심적인 특징은 동일합니다—한국은 당신의 사업이 통하는지 여부를 거의 어디보다 빠르게 알려줍니다.</p>
 
-      <h3 class="a-h3">An Ultra-Dense, Efficient Market</h3>
+      <h3 class="a-h3"><span class="h-lang-en">An Ultra-Dense, Efficient Market</span><span class="h-lang-ko" hidden>초고밀도의 효율적인 시장</span></h3>
       <p class="lang-en">South Korea's total population of 51.6 million<sup class="ref-mark">¹</sup> is compact, with over 92% urbanized.<sup class="ref-mark">²</sup> Seoul packs roughly 15,500 people per km²—well above New York City's roughly 11,300<sup class="ref-mark">³</sup>—anchoring a metropolitan cluster of some 26 million people.<sup class="ref-mark">⁴</sup> Combined with near-universal internet and smartphone penetration,<sup class="ref-mark">⁵</sup> this concentration cuts logistics overhead and marketing fragmentation, letting companies scale operations and turn over capital at a pace larger, more dispersed markets can't match.</p>
       <p class="lang-ko" hidden>한국의 총인구 5,160만 명<sup class="ref-mark">¹</sup>은 좁은 국토에 압축되어 있고, 그중 92% 이상이 도시화되어 있습니다.<sup class="ref-mark">²</sup> 서울은 1km²당 약 15,500명이 밀집해 있어—뉴욕시의 약 11,300명<sup class="ref-mark">³</sup>을 훌쩍 뛰어넘으며—약 2,600만 명 규모의 수도권 클러스터를 형성합니다.<sup class="ref-mark">⁴</sup> 거의 모든 국민이 인터넷과 스마트폰을 사용하는 환경<sup class="ref-mark">⁵</sup>과 맞물려, 이런 밀집도는 물류 비용과 마케팅 분산을 크게 줄여주고, 기업들이 더 크고 흩어진 시장에서는 불가능한 속도로 사업을 확장하고 자본을 회전시킬 수 있게 해줍니다.</p>
 
-      <h3 class="a-h3">Developed-Economy Purchasing Power</h3>
+      <h3 class="a-h3"><span class="h-lang-en">Developed-Economy Purchasing Power</span><span class="h-lang-ko" hidden>선진국형 구매력</span></h3>
       <p class="lang-en">With a nominal GDP of $1.86 trillion and a per-capita GDP of $36,000,<sup class="ref-mark">⁶</sup> South Korea is a top-15 global economy with a diverse consumption spectrum—deep enough to sustain premium brands, yet compact enough for volume-driven models to scale quickly.</p>
       <p class="lang-ko" hidden>명목 GDP 1조 8,600억 달러, 1인당 GDP 3만 6,000달러<sup class="ref-mark">⁶</sup>로 한국은 세계 15위권의 경제 대국이며, 소비층 스펙트럼도 다양합니다—프리미엄 브랜드를 받쳐줄 만큼 시장이 깊으면서도, 물량 중심 모델이 빠르게 확장할 수 있을 만큼 시장이 응축되어 있습니다.</p>
       <p class="lang-en">Success in Seoul doesn't guarantee success elsewhere in Asia—but the discipline required to survive here serves as a stress test for your broader regional strategy, and the resilience it builds travels well beyond this single market.</p>
@@ -332,8 +334,8 @@
     </section>
 
     <section class="a-section" id="sec-who">
-      <h2 class="a-h2">How Competition, Status, and Efficiency Shape Purchasing Decisions</h2>
-      <h3 class="a-h3">Busy, beautiful, productive — and deeply insecure</h3>
+      <h2 class="a-h2"><span class="h-lang-en">How Competition, Status, and Efficiency Shape Purchasing Decisions</span><span class="h-lang-ko" hidden>경쟁, 지위, 효율성이 소비를 결정하는 방식</span></h2>
+      <h3 class="a-h3"><span class="h-lang-en">Busy, beautiful, productive — and deeply insecure</span><span class="h-lang-ko" hidden>바쁘고, 아름답고, 생산적이며 — 깊이 불안한</span></h3>
       <p class="lang-en">The average Korean's life is structured as a series of competitions: English education in early childhood, university entrance exams in the teens, the job market battle in the twenties, then asset accumulation and children's education from the thirties onward. How Koreans cope with this pressure is precisely what shapes their consumption.</p>
       <p class="lang-ko" hidden>평균적인 한국인의 삶은 일련의 경쟁으로 짜여 있습니다: 유아기의 영어 교육, 10대의 대입 시험, 20대의 취업 전쟁, 그리고 30대 이후의 자산 축적과 자녀 교육까지. 한국인들이 이 압박을 감당하는 방식이 곧 그들의 소비 패턴을 결정짓습니다.</p>
       <p class="lang-en">The numbers on education tell the story. Korea spent 27.5 trillion won (approx. USD 20 billion) on private tutoring for K-12 students in 2025, with a participation rate of 75.7%; among participating students, monthly spending averaged 604,000 won — crossing the 600,000-won mark for the first time.<sup class="ref-mark">¹</sup> The result: 70.6% of Koreans aged 25–34 hold a tertiary degree, the highest rate in the OECD.<sup class="ref-mark">²</sup> Education is not a preference here; it is the socially agreed-upon ladder of mobility.</p>
@@ -362,8 +364,8 @@
     </section>
 
     <section class="a-section" id="sec-what">
-      <h2 class="a-h2">Where the Money Is Moving</h2>
-      <h3 class="a-h3">Key Growth Sectors and Structural Shifts in the Korean Economy</h3>
+      <h2 class="a-h2"><span class="h-lang-en">Where the Money Is Moving</span><span class="h-lang-ko" hidden>돈이 움직이는 곳</span></h2>
+      <h3 class="a-h3"><span class="h-lang-en">Key Growth Sectors and Structural Shifts in the Korean Economy</span><span class="h-lang-ko" hidden>한국 경제의 핵심 성장 섹터와 구조적 변화</span></h3>
       <p class="lang-en">Follow the quarterly national accounts from 2020 to 2025 and two engines stand out in Korea's service sector: ICT and health/social-welfare services, both riding structural tailwinds from the technology shift and demographic change. ICT, at the intersection of the AI boom and cloud migration, saw quarterly real output jump from KRW 29.1 trillion to KRW 38 trillion — cumulative growth of about 30.6%; health and welfare services, propelled by rapid aging and largely insulated from the business cycle, grew 29.3%, from KRW 26.3 trillion to KRW 34 trillion.<sup class="ref-mark">¹</sup> The e-commerce explosion led by Coupang drove smart-logistics investment, pulling transport and warehousing up 26.3%, from KRW 19 trillion to KRW 24 trillion — a figure flattered partly by rebound from a pandemic-depressed 2020 base, but sustained well beyond it.<sup class="ref-mark">¹</sup></p>
       <p class="lang-ko" hidden>2020년부터 2025년까지의 분기별 국민계정을 살펴보면, 한국 서비스업에서 두 엔진이 두드러집니다: ICT와 보건·사회복지 서비스업으로, 둘 다 기술 전환과 인구 구조 변화라는 구조적 순풍을 타고 있습니다. AI 붐과 클라우드 전환의 교차점에 있는 ICT는 분기 실질 생산이 29조 1,000억 원에서 38조 원으로 뛰어올라—누적 성장률 약 30.6%를 기록했고; 급속한 고령화의 영향을 받으면서도 경기 변동에 비교적 둔감한 보건·복지 서비스업은 26조 3,000억 원에서 34조 원으로 29.3% 성장했습니다.<sup class="ref-mark">¹</sup> 쿠팡이 주도한 이커머스 붐은 스마트 물류 투자로 이어지며 운수·창고업을 19조 원에서 24조 원으로 26.3% 끌어올렸는데—이는 팬데믹으로 위축되었던 2020년 기저효과가 일부 반영된 수치이지만, 그 이후로도 견조하게 유지되고 있습니다.<sup class="ref-mark">¹</sup></p>
       <p class="lang-en">By contrast, traditional domestic sectors — large in size but stalled in real value creation — cast an ever-deeper shadow. Wholesale/retail and accommodation/food services, the largest service segment by volume at roughly KRW 58 trillion, posted just 7.8% cumulative growth over the same period; real estate, weighed down by household debt and prolonged high interest rates, sat frozen near KRW 44 trillion a quarter with growth of only around 5%.<sup class="ref-mark">¹</sup> The contrast is numerical proof that Korea's real growth engine has shifted entirely to advanced digital technology and infrastructure services.</p>
@@ -384,7 +386,7 @@
     </section>
 
     <section class="a-section" id="sec-where">
-      <h2 class="a-h2">Geography, History &amp; Institutions</h2>
+      <h2 class="a-h2"><span class="h-lang-en">Geography, History &amp; Institutions</span><span class="h-lang-ko" hidden>지리, 역사 &amp; 제도</span></h2>
 
       <p class="lang-en"><strong>A brief history and geopolitics.</strong> Korea's history stretches back nearly five thousand years to the legendary founding of Gojoseon by Dangun in 2333 BC. King Sejong created Hangeul, Korea's phonetic writing system, in 1443; Goryeo printed the <em>Jikji</em>, the world's oldest surviving book printed with movable metal type, in 1377; and the Joseon dynasty maintained the <em>Annals of the Joseon Dynasty</em> — a UNESCO Memory of the World document unmatched anywhere for its scale and precision — across five centuries.</p>
       <p class="lang-ko" hidden><strong>요약: 한국사와 지정학.</strong> 한국은 기원전 2333년 단군의 고조선 건국으로 거슬러 올라가는 반만년 역사를 지닌 나라입니다. 세종은 1443년 한글을 창제해 독자적 표음문자 체계를 완성했고, 고려는 1377년 세계 최초의 금속활자본 『직지심체요절』을 인쇄했으며, 조선은 500년간 『조선왕조실록』이라는 세계적으로도 유례를 찾기 힘든 방대하고 정밀한 국가 기록 문화를 이어갔습니다.</p>
@@ -418,16 +420,21 @@
     </section>
 
     <section class="a-section" id="sec-how">
-      <h2 class="a-h2">Taxes, Incentives &amp; Government Support</h2>
-      <h3 class="a-h3">What Foreign Entrepreneurs Need to Know Before Entering Korea</h3>
+      <h2 class="a-h2"><span class="h-lang-en">Taxes, Incentives &amp; Government Support</span><span class="h-lang-ko" hidden>세제, 인센티브 &amp; 정부 지원</span></h2>
+      <h3 class="a-h3"><span class="h-lang-en">What Foreign Entrepreneurs Need to Know Before Entering Korea</span><span class="h-lang-ko" hidden>외국인 창업자가 한국 진출 전 알아야 할 것</span></h3>
+      <h3 class="a-h3"><span class="h-lang-en">Corporate &amp; Personal Tax Rates</span><span class="h-lang-ko" hidden>법인세 및 개인소득세율</span></h3>
       <p class="lang-en">Korea's corporate tax is progressive, from 10% to 25% by bracket — all brackets rose 1 percentage point for fiscal years beginning on or after January 1, 2026<sup class="ref-mark">¹</sup> — plus local income tax equal to 10% of the corporate tax amount.<sup class="ref-mark">¹</sup> Sole proprietors face comprehensive income tax of 6% to 45%<sup class="ref-mark">²</sup>, but foreign workers may elect a flat 19% rate (20.9% including local tax) for up to 20 years from their first day of work in Korea.<sup class="ref-mark">³</sup> Note: the flat-rate scheme currently sunsets for workers starting on or before December 31, 2026<sup class="ref-mark">³</sup>, and the government is reportedly reviewing a scale-back<sup class="ref-mark">⁴</sup> — verify the statute at your actual entry date.</p>
       <p class="lang-ko" hidden>한국의 법인세는 구간별로 10%에서 25%까지 누진 적용되며—2026년 1월 1일 이후 시작되는 회계연도부터는 전 구간이 1%p씩 인상되었고<sup class="ref-mark">¹</sup>—여기에 법인세액의 10%에 해당하는 지방소득세가 추가됩니다.<sup class="ref-mark">¹</sup> 개인사업자는 6%에서 45%의 종합소득세 구간이 적용되지만<sup class="ref-mark">²</sup>, 외국인 근로자는 한국 내 근무 첫날부터 최대 20년간 19% 단일세율(지방세 포함 20.9%)을 선택할 수 있습니다.<sup class="ref-mark">³</sup> 참고: 이 단일세율 제도는 현재 2026년 12월 31일 이전에 근무를 시작한 외국인에 한해 일몰이 예정되어 있고<sup class="ref-mark">³</sup>, 정부는 축소 개편을 검토 중이라는 보도가 있어<sup class="ref-mark">⁴</sup>—실제 입국 시점 기준으로 관련 법령을 반드시 확인해야 합니다.</p>
+      <h3 class="a-h3"><span class="h-lang-en">A Correction Worth Knowing: FEZ Tax Exemptions Are Gone</span><span class="h-lang-ko" hidden>알아둘 정정 사항: 경제자유구역 세금 면제는 폐지됨</span></h3>
       <p class="lang-en">A caution that surprises many would-be entrants: the old headline incentive — years of full corporate-tax exemption for foreign-invested companies in Free Economic Zones and other special zones — was abolished for applications filed from January 1, 2019, when Korea equalized tax treatment between domestic and foreign capital.<sup class="ref-mark">⁵</sup> What remains is still meaningful, but different in kind: local-tax relief (acquisition and property taxes), customs-duty exemptions on imported capital goods<sup class="ref-mark">⁵</sup>, and — above all — cash. VAT is a flat 10%, refundable for exporters.<sup class="ref-mark">⁶</sup></p>
       <p class="lang-ko" hidden>많은 예비 진출자들이 놀라는 대목이 있습니다: 경제자유구역 등 특구에 입주한 외국인투자기업에 수년간 법인세를 전액 면제해주던 과거의 대표 인센티브는, 한국이 내국자본과 외국자본에 대한 세제를 동일하게 맞추면서 2019년 1월 1일 이후 신청 건부터 폐지되었습니다.<sup class="ref-mark">⁵</sup> 다만 여전히 의미 있는 혜택은 남아 있는데, 성격이 다릅니다: 지방세 감면(취득세·재산세), 수입 자본재에 대한 관세 면제<sup class="ref-mark">⁵</sup>, 그리고—무엇보다—현금 지원입니다. 부가가치세는 10% 단일세율이며, 수출기업은 환급받을 수 있습니다.<sup class="ref-mark">⁶</sup></p>
+      <h3 class="a-h3"><span class="h-lang-en">From Tax Breaks to Cash: Where the Incentives Actually Are</span><span class="h-lang-ko" hidden>세제 혜택에서 현금으로: 실질적 인센티브의 위치</span></h3>
       <p class="lang-en">The policy center of gravity has shifted from tax breaks to direct cash grants. The FDI cash-grant budget quadrupled from KRW 50 billion in 2023 to KRW 200 billion in 2024, with grant ratios of up to 50% for advanced strategic-technology investments.<sup class="ref-mark">⁷</sup> The pull is working: even as global FDI trended down, Korea's inbound FDI filings hit a record $34.6 billion in 2024, up 5.7% year-on-year.<sup class="ref-mark">⁸</sup> Entrepreneurs who work through Invest Korea, KOTRA, the current year's support programs and the Foreign Investment Promotion Act before entering can capture substantial savings on setup costs.</p>
       <p class="lang-ko" hidden>정책의 무게중심은 세제 혜택에서 직접적인 현금 보조금으로 옮겨갔습니다. 외국인직접투자 현금지원 예산은 2023년 500억 원에서 2024년 2,000억 원으로 4배 증가했고, 첨단 전략기술 투자에 대해서는 지원 비율이 최대 50%에 달합니다.<sup class="ref-mark">⁷</sup> 이 유인책은 효과를 내고 있습니다: 글로벌 FDI가 감소 추세인 와중에도, 한국의 외국인직접투자 신고액은 2024년 346억 달러로 사상 최고치를 기록했고, 전년 대비 5.7% 증가했습니다.<sup class="ref-mark">⁸</sup> 진출 전에 인베스트코리아, KOTRA, 해당 연도 지원 프로그램, 외국인투자촉진법상 혜택을 꼼꼼히 챙기는 창업자는 초기 비용에서 상당한 이득을 볼 수 있습니다.</p>
+      <h3 class="a-h3"><span class="h-lang-en">The K-Startup Grand Challenge</span><span class="h-lang-ko" hidden>K-Startup Grand Challenge</span></h3>
       <p class="lang-en">Beyond tax and cash incentives, Korea also operates one of Asia's most established inbound accelerator programs dedicated to foreign founders: the K-Startup Grand Challenge (KSGC), administered by the Ministry of SMEs and Startups. Eligibility is limited to pre-startups or companies founded within the past seven years (extended to ten years for designated emerging industries), and — notably — the CEO (or all co-CEOs) must be non-Korean nationals.<sup class="ref-mark">⁹</sup> Now in its eleventh year, KSGC has attracted more than 21,500 applicants since its launch in 2016.<sup class="ref-mark">¹⁰</sup> Selected startups receive grant funding, office space, visa assistance, and structured proof-of-concept opportunities with more than 20 Korean corporations.<sup class="ref-mark">¹⁰</sup> The main application round typically opens in May, followed by a separate track for international students later in the summer.<sup class="ref-mark">⁹</sup> For founders evaluating Korea as an expansion destination, KSGC often represents an even more compelling entry point than tax incentives alone. Rather than relying primarily on preferential tax treatment, the program reflects Korea's broader strategy of attracting global entrepreneurial talent and connecting overseas startups with local corporate partners, investors, and the wider innovation ecosystem.</p>
       <p class="lang-ko" hidden>세금·현금 인센티브 외에도, 한국은 아시아에서 가장 자리 잡은 외국인 창업자 전용 액셀러레이터 프로그램 중 하나를 운영하고 있습니다: 중소벤처기업부가 주관하는 K-Startup Grand Challenge(KSGC)입니다. 지원 자격은 예비 창업자 또는 설립 7년 이내 기업(지정된 신산업 분야는 10년까지 연장)으로 제한되며—무엇보다—대표(또는 공동대표 전원)가 외국인이어야 합니다.<sup class="ref-mark">⁹</sup> 올해로 11년째를 맞은 KSGC는 2016년 출범 이후 2만 1,500건 이상의 지원을 받았습니다.<sup class="ref-mark">¹⁰</sup> 선발된 스타트업은 보조금, 사무 공간, 비자 지원, 그리고 20개 이상의 한국 기업과의 체계적인 실증(PoC) 기회를 제공받습니다.<sup class="ref-mark">¹⁰</sup> 본 트랙은 보통 5월에 열리며, 이어서 여름 늦게 유학생 전용 트랙이 별도로 진행됩니다.<sup class="ref-mark">⁹</sup> 한국을 진출 대상지로 검토하는 창업자에게는 KSGC가 세제 혜택보다 오히려 더 매력적인 진입 경로가 되는 경우가 많습니다. 세제 우대에 주로 의존하기보다, 이 프로그램은 글로벌 창업 인재를 유치하고 해외 스타트업을 국내 대기업·투자자·더 넓은 혁신 생태계와 연결하려는 한국의 큰 그림 전략을 보여줍니다.</p>
+      <h3 class="a-h3"><span class="h-lang-en">What Comes After KSGC: The Global Startup Commercialization Support Program</span><span class="h-lang-ko" hidden>KSGC 다음 단계: Global Startup Commercialization Support Program</span></h3>
       <p class="lang-en">Each cycle, a second MSS-run program picks up where KSGC leaves off — the Global Startup Commercialization Support Program, aimed at foreign-led startups that have already established (or commit to establishing) a Korean corporate entity before the grant agreement is signed. The most recent round ran March to April 2026, so founders should budget for the next call rather than assume this one is still open. It offers an average of KRW 50 million and up to KRW 80 million in commercialization funding — covering product development, outsourced development, business-model refinement, IP registration, hiring, and marketing — on a reimbursement basis: the company spends first, then claims against receipts.<sup class="ref-mark">¹¹</sup> Roughly 15 companies are selected per cycle, and the two programs are structured as sequential rather than overlapping — applicants active in the current KSGC cycle are not eligible.<sup class="ref-mark">¹¹</sup> Read together, the two map cleanly onto Korea's actual entry sequence: KSGC to get discovered and validated, incorporation, then this program to fund the buildout — a more concrete on-ramp for a serious SME than the tax code alone offers.</p>
       <p class="lang-ko" hidden>매 주기마다, 중기부가 운영하는 두 번째 프로그램이 KSGC의 바통을 이어받습니다—Global Startup Commercialization Support Program으로, 이미 한국 법인을 설립했거나(또는 보조금 협약 체결 전까지 설립을 약속하는) 외국인 주도 스타트업을 대상으로 합니다. 가장 최근 회차는 2026년 3월~4월에 진행되었으니, 창업자들은 이번 회차가 아직 열려 있다고 가정하기보다 다음 공고를 기준으로 일정을 잡아야 합니다. 평균 5,000만 원, 최대 8,000만 원의 사업화 자금을 지원하며—제품 개발, 외주 개발, 비즈니스 모델 고도화, 지식재산권 등록, 채용, 마케팅 등에 사용 가능하고—정산 방식은 후불(기업이 먼저 지출한 뒤 영수증으로 청구)입니다.<sup class="ref-mark">¹¹</sup> 회차당 약 15개 기업이 선정되며, 두 프로그램은 중복이 아니라 순차 구조로 설계되어 있어—현재 KSGC 진행 중인 지원자는 이 프로그램에 지원할 수 없습니다.<sup class="ref-mark">¹¹</sup> 두 프로그램을 함께 보면 한국 진출의 실제 순서와 정확히 맞아떨어집니다: 먼저 KSGC로 발굴·검증받고, 법인을 설립한 뒤, 이 프로그램으로 실행 자금을 확보하는 것—세법만 들여다보는 것보다 진지한 중소기업에게 훨씬 구체적인 진입 경로입니다.</p>
       <details class="a-source">
@@ -451,7 +458,7 @@
     </section>
 
     <section class="a-section" id="sec-conclusion">
-      <h2 class="a-h2">Conclusion</h2>
+      <h2 class="a-h2"><span class="h-lang-en">Conclusion</span><span class="h-lang-ko" hidden>결론</span></h2>
       <p class="lang-en">[Placeholder — full conclusion to come.] Korea rewards founders who move fast, read the room, and respect the compliance bar the market has already set for itself.</p>
       <p class="lang-ko" hidden>[플레이스홀더 — 최종 결론 예정] 한국은 빠르게 움직이고, 분위기를 잘 읽고, 시장이 이미 스스로 세워둔 컴플라이언스 기준을 존중하는 창업자에게 보상을 줍니다.</p>
       <p class="lang-en">The five forces above — why now, who you're selling to, what's actually growing, where the institutions stand, and how the incentives work — aren't separate chapters so much as one operating environment.</p>

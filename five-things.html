@@ -233,6 +233,22 @@
       transition: opacity 0.15s;
     }
     .a-cta-btn:hover { opacity: 0.82; }
+    .a-cta-links {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--mut);
+    }
+    .a-cta-links a {
+      color: var(--mut);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.15s;
+    }
+    .a-cta-links a:hover { color: var(--ink); }
+    .a-cta-links .sep {
+      margin: 0 10px;
+      color: var(--hair);
+    }
 
     /* ── Footer ──────────────────────────────────────────── */
     .foot {
@@ -501,6 +517,11 @@
 
   <div class="a-cta">
     <a class="a-cta-btn" href="about.html#about-contact">Request a Free Exploratory Report on the Korean Market</a>
+    <div class="a-cta-links">
+      <a href="#" onclick="alert('Coming soon.'); return false;">Download as eBook</a>
+      <span class="sep">|</span>
+      <a href="#" onclick="alert('Coming soon.'); return false;">Related Links</a>
+    </div>
   </div>
 
   <footer class="foot">

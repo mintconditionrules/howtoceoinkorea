@@ -118,6 +118,10 @@
     }
     .pill:hover { color: var(--ink); border-color: rgba(20,16,10,0.3); }
     .pill.active { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+    .pill-mark {
+      color: #a1631f;
+      margin-right: 3px;
+    }
 
     /* ── Sections ────────────────────────────────────────── */
     .a-section { padding: 48px 0; border-bottom: 1px solid var(--hair); scroll-margin-top: 78px; }
@@ -325,7 +329,7 @@
       <a class="pill" data-target="sec-who" href="#sec-who">WHO</a>
       <a class="pill" data-target="sec-what" href="#sec-what">WHAT</a>
       <a class="pill" data-target="sec-how" href="#sec-how">HOW</a>
-      <a class="pill" data-target="sec-conclusion" href="#sec-conclusion">CONCLUSION</a>
+      <a class="pill" data-target="sec-conclusion" href="#sec-conclusion"><span class="pill-mark">*</span>CONCLUSION</a>
     </nav>
     <button class="lang-toggle" id="lang-toggle" type="button">Read in Korean</button>
   </div>

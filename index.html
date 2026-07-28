@@ -127,6 +127,17 @@
 
     /* ── Article list ────────────────────────────────────── */
     .posts { border-bottom: 1px solid var(--hair); }
+    .posts-fade-wrap { position: relative; }
+    .post-teaser { opacity: 0.4; cursor: default; }
+    .post-teaser:hover { background: none; }
+    .post-teaser:hover .post-ttl { text-decoration: none; }
+    .posts-fade-overlay {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 140px;
+      background: linear-gradient(to bottom, rgba(251,251,249,0) 0%, var(--paper) 80%);
+      pointer-events: none;
+    }
     .post {
       display: flex;
       gap: 24px;
@@ -335,6 +346,7 @@
 
   <!-- Article list — add new articles here -->
   <section class="posts" aria-label="Articles">
+    <div class="posts-fade-wrap">
 
     <article class="post" onclick="alert('Coming soon. Go bug the author.')">
       <div class="thumb"><img src="https://picsum.photos/seed/article-0/480" alt="" onerror="this.style.display='none'"></div>
@@ -375,7 +387,7 @@
       </div>
     </article>
 
-    <article class="post" onclick="alert('Coming soon. Go bug the author.')">
+    <article class="post post-teaser">
       <div class="thumb"><img src="https://picsum.photos/seed/article-3/480" alt="" onerror="this.style.display='none'"></div>
       <div class="post-body">
         <h3 class="post-ttl">Will This Work in Korea? — Super affordable mental health</h3>
@@ -388,6 +400,8 @@
       </div>
     </article>
 
+    <div class="posts-fade-overlay"></div>
+    </div>
   </section>
 
   <!-- Footer -->

@@ -124,8 +124,8 @@
     }
 
     /* ── Sections ────────────────────────────────────────── */
-    .a-section { padding: 48px 0; border-bottom: 1px solid var(--hair); scroll-margin-top: 78px; }
-    .a-section:last-of-type { border-bottom: none; }
+    .a-section { display: none; padding: 48px 0; scroll-margin-top: 78px; }
+    .a-section.active { display: block; }
 
     .a-h2 {
       font-family: 'Newsreader', Georgia, serif;
@@ -324,7 +324,7 @@
 
   <div class="controls">
     <nav class="sec-nav" aria-label="Jump to section">
-      <a class="pill" data-target="sec-why" href="#sec-why">WHY</a>
+      <a class="pill active" data-target="sec-why" href="#sec-why">WHY</a>
       <a class="pill" data-target="sec-where" href="#sec-where">WHERE</a>
       <a class="pill" data-target="sec-who" href="#sec-who">WHO</a>
       <a class="pill" data-target="sec-what" href="#sec-what">WHAT</a>
@@ -336,7 +336,7 @@
 
   <div class="article-body" data-lang="en">
 
-    <section class="a-section" id="sec-why">
+    <section class="a-section active" id="sec-why">
       <h2 class="a-h2"><span class="h-lang-en">Welcome to the Trend Battlefield</span><span class="h-lang-ko" hidden>트렌드 전쟁터에 오신 것을 환영합니다</span></h2>
       <h3 class="a-h3"><span class="h-lang-en">Why Korea is one of the world's most demanding consumer markets</span><span class="h-lang-ko" hidden>한국이 세계에서 가장 까다로운 소비 시장인 이유</span></h3>
 
@@ -563,23 +563,16 @@
     var sections = Array.prototype.slice.call(document.querySelectorAll('.a-section'));
     var navBtns = Array.prototype.slice.call(document.querySelectorAll('.sec-nav .pill'));
 
-    // Smooth-scroll for the anchor pills
+    // Show only the selected section, hide the rest
     navBtns.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
-        document.getElementById(btn.dataset.target).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var targetId = btn.dataset.target;
+        sections.forEach(function (s) { s.classList.toggle('active', s.id === targetId); });
+        navBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        document.querySelector('.controls').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-
-    // Highlight the nav pill matching the section currently in view
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === entry.target.id); });
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(function (s) { observer.observe(s); });
 
     // English / Korean body-text toggle (auto-translated placeholder copy for now)
     var articleBody = document.querySelector('.article-body');

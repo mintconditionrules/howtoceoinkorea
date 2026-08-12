@@ -148,15 +148,25 @@
       margin: 30px 0 10px;
     }
     .a-h3-lede {
-      font-weight: 400;
-      font-style: italic;
-      color: var(--mut);
+      font-size: 15px;
     }
-    .a-h4 {
+    .a-quote {
+      margin: 4px 0 28px;
+      padding: 2px 0 2px 20px;
+      border-left: 2px solid rgba(20,16,10,0.14);
+    }
+    .a-quote p {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    .a-quote-cite {
+      display: block;
+      margin-top: 10px;
+      font-family: 'Public Sans', sans-serif;
+      font-style: normal;
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      margin: 24px 0 10px;
       color: var(--mut);
     }
     .a-section p {
@@ -401,6 +411,11 @@
     <section class="a-section" id="sec-where">
       <h2 class="a-h2"><span class="h-lang-en">Geography, History &amp; Institutions</span><span class="h-lang-ko" hidden>지리, 역사 &amp; 제도</span></h2>
 
+      <blockquote class="a-quote">
+        <p class="lang-en">"The fighting inside the fort was desperate. The resolution of the Coreans was unyielding; they apparently expected no quarter, and probably would have given none. They fought to the death, and only when the last man fell did the conflict cease."<span class="a-quote-cite">— U.S. Navy account of the Battle of Ganghwa (Sinmiyangyo), 1871</span></p>
+        <p class="lang-ko" hidden>"요새 안의 전투는 처절했다. 조선인들의 결의는 굽힘이 없었다. 그들은 항복을 기대하지도, 베풀지도 않을 듯했다. 그들은 죽을 때까지 싸웠고, 마지막 한 사람이 쓰러지고 나서야 전투가 멈췄다."<span class="a-quote-cite">— 1871년 신미양요 광성보 전투에 관한 미 해군 측 기록</span></p>
+      </blockquote>
+
       <p class="lang-en">The Korean peninsula lies between latitudes 33°N and 43°N, in a temperate zone with four distinct seasons. Summers push past 30°C and winters drop below freezing — a wide annual swing. Its recorded history begins in 2333 BC with the founding of Gojoseon.</p>
       <p class="lang-ko" hidden>한반도는 북위 33도에서 43도 사이에 자리하며, 사계절이 뚜렷한 온대 기후를 지닌 반도 지역이다. 여름에는 30도를 웃돌고 겨울에는 영하로 떨어질 만큼 기온 차가 큰 편이며, 역사는 기원전 2333년 고조선 건국으로 시작된다.</p>
 
@@ -432,7 +447,7 @@
       <p class="lang-en">Generations born since the 1980s — the people now driving the working world and consumption — take democratic process as a baseline condition of life to a degree earlier generations did not. They respond to corporate abuse of power or opaque governance with swift, organized boycotts, which means any company operating here must meet compliance standards at the top of the global range.</p>
       <p class="lang-ko" hidden>특히 1980년대 이후 태어난 세대 — 지금의 노동시장과 소비를 이끄는 세대 — 는 이전 세대에 비해 민주적 절차를 삶의 기본 조건으로 받아들인다. 이들은 기업의 권력 남용이나 불투명한 지배구조에 대해 신속하고 조직적인 불매운동으로 대응하며, 이는 시장 전체의 컴플라이언스 기준을 세계 상위 수준으로 맞추어야 함을 시사한다.</p>
 
-      <h4 class="a-h4"><span class="h-lang-en">A Governance Timeline Since Democratization</span><span class="h-lang-ko" hidden>민주화 이후 거버넌스 타임라인</span></h4>
+      <h3 class="a-h3"><span class="h-lang-en">A Governance Timeline Since Democratization</span><span class="h-lang-ko" hidden>민주화 이후 거버넌스 타임라인</span></h3>
 
       <p class="lang-en">Korean politics divides into two broad blocs. Party names change often; the lineages persist.</p>
       <p class="lang-ko" hidden>한국 정치는 크게 두 진영으로 나뉘며, 정당명은 자주 바뀌지만 계보 자체는 유지된다.</p>
@@ -480,6 +495,7 @@
         <summary>References</summary>
         <div class="a-source-body">
           <ol class="ref-list">
+            <li>U.S. Navy account, Battle of Ganghwa (Sinmiyangyo), 1871, as documented in Thomas Duvernay, <em>Sinmiyangyo: The 1871 Conflict Between the United States and Korea</em> (2021); The Korea Times, <em>Sinmiyangyo: The Bloody US-Korea Battle Born of Cultural Misunderstanding</em> (2021).</li>
             <li>National Institute of Korean History, Woori History Net. <a href="https://contents.history.go.kr" target="_blank" rel="noopener">Link</a></li>
             <li>Encyclopedia of Korean Culture. <a href="https://encykorea.aks.ac.kr" target="_blank" rel="noopener">Link</a></li>
             <li>National Hangeul Museum. <a href="https://hangeul.go.kr" target="_blank" rel="noopener">Link</a></li>

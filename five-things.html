@@ -20,6 +20,12 @@
 
     /* ── Reset / Base ────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
     html, body {
       margin: 0; padding: 0;
       background: var(--paper);
@@ -169,6 +175,19 @@
       color: #a1631f;
       font-weight: 700;
     }
+    .ref-mark a { color: inherit; text-decoration: none; }
+    .ref-mark a:hover { text-decoration: underline; }
+    .ref-list li { scroll-margin-top: 100px; }
+
+    .xref {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      opacity: .7;
+      transition: opacity .15s ease;
+    }
+    .xref:hover { opacity: 1; }
 
     .a-source {
       margin-top: 24px;
@@ -577,28 +596,46 @@
       <h2 class="a-h2"><span class="h-lang-en">Where the Money Is Moving</span><span class="h-lang-ko" hidden>돈이 움직이는 곳</span></h2>
       <h3 class="a-h3"><span class="h-lang-en">Key Growth Sectors and Structural Shifts in the Korean Economy</span><span class="h-lang-ko" hidden>한국 경제의 핵심 성장 섹터와 구조적 변화</span></h3>
 
-      <h3 class="a-h3"><span class="h-lang-en">Capital Markets Background</span><span class="h-lang-ko" hidden>자본시장 배경</span></h3>
-      <p class="lang-en">Korea's capital markets have their own momentum story worth noting before the sector data. The Lee administration has made "fixing the Korea discount" an explicit policy goal: three rounds of Commercial Act amendments have written directors' fiduciary duty to shareholders into law, mandated cumulative voting and treasury-share cancellation, and introduced a "one-strike-out" rule for unfair trading, alongside a mandatory tender-offer rule and tiered dividend taxation designed to make the market more attractive to minority and foreign shareholders alike.<sup class="ref-mark">¹</sup> (For the political backdrop, see WHERE.) That reform push is part of why the money described below found somewhere to go — and for a foreign SME evaluating governance risk before investing, this structural shift is a more durable signal than the index level on any given day.</p>
-      <p class="lang-ko" hidden>본격적인 섹터별 데이터에 앞서 짚어둘 것이 있습니다. 이재명 정부는 '코리아 디스카운트 해소'를 명시적인 국정 과제로 내걸고, 세 차례에 걸친 상법 개정으로 이사의 주주 충실의무 명문화, 집중투표제 의무화, 자사주 소각 의무화를 추진했고, 불공정거래에 대한 '원스트라이크아웃' 원칙과 의무공개매수제, 고배당 기업에 대한 분리과세 등을 통해 소액주주·외국인 투자자 모두에게 매력적인 시장을 만들려 하고 있습니다.<sup class="ref-mark">¹</sup> (정치적 배경은 WHERE 참고.) 아래에서 설명하는 자금 유입도 이런 개혁 드라이브가 갈 곳을 찾은 결과 중 하나입니다 — 외국 중소기업이 투자 전 거버넌스 리스크를 판단할 때는, 특정 날짜의 지수 숫자보다 이런 구조적 변화가 더 오래가는 신호입니다.</p>
+      <p class="lang-en">Growth markets are scarce among mature economies. For 2026 the IMF projects advanced economies as a group at 1.7%, the euro area at 0.9%, Japan at 0.6%, and the United States at 2.3%. Korea sits at 2.6% — the highest among advanced economies, revised up from 1.9% in April, the largest upgrade of any of the 30 major economies in that round. The 2027 projection of 2.5% again leads the advanced group.<sup class="ref-mark"><a href="#what-ref-1">1</a></sup> Korea's own government forecast is higher still, at 3.0%.<sup class="ref-mark"><a href="#what-ref-2">2</a></sup> AI hardware is the reason: the IMF classifies Korea as one of the world's four largest net exporters of AI hardware.<sup class="ref-mark"><a href="#what-ref-1">1</a></sup> Few markets combine developed-economy infrastructure, purchasing power, and legal institutions with growth at this level.</p>
+      <p class="lang-ko" hidden>성숙한 경제권에서 성장 시장을 찾기는 쉽지 않다. IMF는 2026년 선진국 전체 성장률을 1.7%, 유로존을 0.9%, 일본을 0.6%, 미국을 2.3%로 전망했다. 한국은 2.6%로 선진국 중 가장 높으며, 4월 전망치 1.9%에서 0.7%p 상향된 수치이자 주요 30개국 중 최대 상향폭이다. 2027년 전망 역시 2.5%로 선진국 1위다.<sup class="ref-mark"><a href="#what-ref-1">1</a></sup> 한국 정부 자체 전망은 3.0%다.<sup class="ref-mark"><a href="#what-ref-2">2</a></sup> AI 하드웨어가 배경으로, IMF는 한국을 세계 4대 AI 하드웨어 순수출국 중 하나로 분류했다.<sup class="ref-mark"><a href="#what-ref-1">1</a></sup> 선진국 수준의 인프라와 구매력, 법·제도를 갖추면서 동시에 성장하는 시장으로는 드문 경우다.</p>
 
-      <h3 class="a-h3"><span class="h-lang-en">Sector Growth, 2020–2025</span><span class="h-lang-ko" hidden>2020~2025년 섹터별 성장</span></h3>
-      <p class="lang-en">Follow the quarterly national accounts from 2020 to 2025 and two engines stand out in Korea's service sector: ICT and health/social-welfare services, both riding structural tailwinds from the technology shift and demographic change. ICT, at the intersection of the AI boom and cloud migration, saw quarterly real output jump from KRW 29.1 trillion to KRW 38 trillion — cumulative growth of about 30.6%; health and welfare services, propelled by rapid aging and largely insulated from the business cycle, grew 29.3%, from KRW 26.3 trillion to KRW 34 trillion.<sup class="ref-mark">²</sup> The e-commerce explosion led by Coupang drove smart-logistics investment, pulling transport and warehousing up 26.3%, from KRW 19 trillion to KRW 24 trillion — a figure flattered partly by rebound from a pandemic-depressed 2020 base, but sustained well beyond it.<sup class="ref-mark">²</sup></p>
-      <p class="lang-ko" hidden>2020년부터 2025년까지의 분기별 국민계정을 살펴보면, 한국 서비스업에서 두 엔진이 두드러집니다: ICT와 보건·사회복지 서비스업으로, 둘 다 기술 전환과 인구 구조 변화라는 구조적 순풍을 타고 있습니다. AI 붐과 클라우드 전환의 교차점에 있는 ICT는 분기 실질 생산이 29조 1,000억 원에서 38조 원으로 뛰어올라—누적 성장률 약 30.6%를 기록했고; 급속한 고령화의 영향을 받으면서도 경기 변동에 비교적 둔감한 보건·복지 서비스업은 26조 3,000억 원에서 34조 원으로 29.3% 성장했습니다.<sup class="ref-mark">²</sup> 쿠팡이 주도한 이커머스 붐은 스마트 물류 투자로 이어지며 운수·창고업을 19조 원에서 24조 원으로 26.3% 끌어올렸는데—이는 팬데믹으로 위축되었던 2020년 기저효과가 일부 반영된 수치이지만, 그 이후로도 견조하게 유지되고 있습니다.<sup class="ref-mark">²</sup></p>
-      <p class="lang-en">By contrast, traditional domestic sectors — large in size but stalled in real value creation — cast an ever-deeper shadow. Wholesale/retail and accommodation/food services, the largest service segment by volume at roughly KRW 58 trillion, posted just 7.8% cumulative growth over the same period; real estate, weighed down by household debt and prolonged high interest rates, sat frozen near KRW 44 trillion a quarter with growth of only around 5%.<sup class="ref-mark">²</sup> The contrast is numerical proof that Korea's real growth engine has shifted entirely to advanced digital technology and infrastructure services.</p>
-      <p class="lang-ko" hidden>반면 전통적인 내수 섹터는—규모는 크지만 실질적인 부가가치 창출은 정체되어—갈수록 짙은 그늘에 놓여 있습니다. 서비스업 중 최대 규모(약 58조 원)인 도소매·숙박음식점업은 같은 기간 누적 성장률이 겨우 7.8%에 그쳤고; 가계부채 부담과 장기화된 고금리에 짓눌린 부동산업은 분기 약 44조 원 규모에 그대로 갇힌 채 성장률이 5% 안팎에 머물러 있습니다.<sup class="ref-mark">²</sup> 이 극명한 대비는 한국 경제의 실질적인 성장 엔진이 첨단 디지털 기술과 인프라 서비스로 완전히 옮겨갔음을 숫자로 증명합니다.</p>
+      <p class="lang-en">Cumulative growth in the quarterly national accounts from 2020 to 2025 breaks down as follows: ICT at 30.6% (quarterly real output of about $21bn → $27bn), health and social welfare services at 29.3% (about $19bn → $24bn), and transport and warehousing at 26.3% (about $14bn → $17bn), driven respectively by the AI and cloud transition, rapid aging, and e-commerce-led investment in smart logistics. Over the same period, wholesale/retail and accommodation/food services — the largest service segment at roughly $41bn a quarter — grew 7.8%, and real estate (about $31bn a quarter) grew around 5%.<sup class="ref-mark"><a href="#what-ref-3">3</a></sup> The largest sectors and the growing sectors are not the same sectors, and that mismatch defines the market.</p>
+      <p class="lang-ko" hidden>2020~2025년 분기별 국민계정 기준 누적 성장률을 보면, ICT가 30.6%(29조 1,000억 → 38조 원), 보건·사회복지 서비스업이 29.3%(26조 3,000억 → 34조 원), 운수·창고업이 26.3%(19조 → 24조 원)로 확대되었다. 각각 AI·클라우드 전환, 고령화, 이커머스발 스마트 물류 투자가 동인이다. 반면 서비스업 최대 규모인 도소매·숙박음식점업(약 58조 원)은 7.8%, 부동산업(분기 약 44조 원)은 5% 안팎에 그쳤다.<sup class="ref-mark"><a href="#what-ref-3">3</a></sup> 규모가 큰 업종과 성장하는 업종이 일치하지 않는다는 점이 이 시장의 핵심 특징이다.</p>
 
-      <h3 class="a-h3"><span class="h-lang-en">2026 Update: The Semiconductor Supercycle</span><span class="h-lang-ko" hidden>2026 업데이트: 반도체 슈퍼사이클</span></h3>
-      <p class="lang-en">As of 2026, semiconductors sit at the apex of this shift. Big tech's AI data-center investments sent demand for high-value memory (HBM) soaring: semiconductor exports jumped 169.4% year-on-year in May 2026, reaching 42.3% of total exports.<sup class="ref-mark">³</sup> Korea posted the highest first-quarter growth in the OECD at 1.7% quarter-on-quarter<sup class="ref-mark">⁴</sup>; the National Assembly Budget Office estimates the chip boom alone lifts this year's real GDP growth by 0.8 percentage points<sup class="ref-mark">³</sup>, and the government has raised its full-year forecast to 3.0%.<sup class="ref-mark">⁵</sup> One caveat when choosing your sector: the boom is concentrated in chips and large exporters, and the "K-shaped" gap with domestic demand and non-IT industries is widening<sup class="ref-mark">⁵</sup> — the headline growth number and the on-the-ground reality in consumer-facing industries are two different stories.</p>
-      <p class="lang-ko" hidden>2026년 현재, 반도체는 이러한 전환의 정점에 서 있습니다. 빅테크의 AI 데이터센터 투자가 고부가가치 메모리(HBM) 수요를 폭발시켰습니다: 2026년 5월 반도체 수출은 전년 동기 대비 169.4% 급증했고, 전체 수출의 42.3%를 차지했습니다.<sup class="ref-mark">³</sup> 한국은 OECD 국가 중 1분기 성장률 1위(전분기 대비 1.7%)를 기록했으며<sup class="ref-mark">⁴</sup>; 국회예산정책처는 반도체 호황 하나만으로도 올해 실질 GDP 성장률이 0.8%p 상승한다고 추산했고<sup class="ref-mark">³</sup>, 정부는 연간 성장률 전망치를 3.0%로 상향 조정했습니다.<sup class="ref-mark">⁵</sup> 다만 업종을 고를 때 유의할 점: 이 호황은 반도체와 대형 수출기업에 집중되어 있으며, 내수 및 비IT 산업과의 'K자형' 격차는 더 벌어지고 있습니다<sup class="ref-mark">⁵</sup>—헤드라인 성장률 수치와 소비재 업종 현장의 체감은 서로 다른 이야기입니다.</p>
+      <h4 class="a-h4"><span class="h-lang-en">For Consumer-Facing Businesses</span><span class="h-lang-ko" hidden>소비자 대상 사업의 경우</span></h4>
+
+      <p class="lang-en">The opening lies where the growth sectors overlap with consumer demand. Demand created by aging is not confined to medical institutions; it extends to health functional foods, rehabilitation and care products, and senior-oriented services. The build-out of logistics infrastructure means even small operators can design a business around nationwide delivery from day one.</p>
+      <p class="lang-ko" hidden>성장 섹터와 소비자 시장이 겹치는 지점에 기회가 있다. 고령화가 견인한 보건·복지 수요는 의료기관에 국한되지 않고 건강기능식품, 재활·돌봄 제품, 시니어 대상 서비스로 확장되고 있다. 물류 인프라의 성장은 소규모 사업자도 전국 단위 배송을 전제로 사업을 설계할 수 있는 환경이 갖춰졌음을 의미한다.</p>
+
+      <p class="lang-en">Fast-turnover categories such as beauty, household goods, and food service fall into the stagnant band by growth rate alone. They operate on internal turnover rather than market expansion, and they are where the compressed trend cycles and consumption patterns covered in <a class="xref" href="#sec-why">WHY</a> and <a class="xref" href="#sec-who">WHO</a> surface first. Performance here carries value as validation independent of the revenue it generates.</p>
+      <p class="lang-ko" hidden>뷰티, 생활용품, 외식처럼 회전이 빠른 카테고리는 성장률 수치상 정체 구간에 속한다. 다만 시장 규모가 아니라 내부 교체 속도로 움직이는 영역으로, 앞서 <a class="xref" href="#sec-why">WHY</a>와 <a class="xref" href="#sec-who">WHO</a>에서 다룬 압축된 트렌드 주기와 소비 성향이 가장 먼저 나타나는 자리이기도 하다. 여기서의 성과는 매출 규모와 별개로 검증 자료로서의 값을 갖는다.</p>
+
+      <h4 class="a-h4"><span class="h-lang-en">For B2B Businesses</span><span class="h-lang-ko" hidden>기업 대상 사업의 경우</span></h4>
+
+      <p class="lang-en">All three growth sectors generate B2B demand. ICT expansion translates into spending on cloud, security, and data tooling; the growth of health and welfare into medical IT and facility and equipment procurement; the logistics build-out into warehouse automation and the software around it.</p>
+      <p class="lang-ko" hidden>성장 섹터 세 곳은 모두 B2B 수요를 창출하고 있다. ICT의 확장은 클라우드·보안·데이터 도구 지출로, 보건·복지의 확장은 의료 IT와 시설·장비 조달로, 물류의 확장은 창고 자동화와 관련 소프트웨어 수요로 이어진다.</p>
+
+      <p class="lang-en">In Korea's B2B market, purchasing decisions frequently travel along conglomerate groups and their supplier networks. A new vendor without a local reference typically takes longer to close a first contract, and adoption moves quickly once that first reference exists. Setting the initial objective as a verifiable domestic reference rather than a revenue figure is the more realistic approach.</p>
+      <p class="lang-ko" hidden>한국 B2B 시장에서는 구매 결정이 대기업 계열과 협력사 네트워크를 따라 움직이는 경우가 많다. 레퍼런스가 없는 신규 공급자의 첫 계약까지는 상대적으로 시간이 걸리며, 첫 레퍼런스가 확보된 이후에는 확산 속도가 빠르다. 초기 목표를 매출 규모보다 검증 가능한 국내 레퍼런스 확보에 두는 접근이 현실적이다.</p>
+
+      <h3 class="a-h3"><span class="h-lang-en">2026 Update: The Semiconductor Supercycle and Capital Market Reform</span><span class="h-lang-ko" hidden>2026 업데이트: 반도체 슈퍼사이클과 자본시장 개혁</span></h3>
+
+      <p class="lang-en">As of 2026, semiconductors sit at the apex of this shift. Big tech's AI data-center investment has driven demand for high-value memory (HBM): semiconductor exports rose 169.4% year-on-year in May 2026, accounting for 42.3% of total exports.<sup class="ref-mark"><a href="#what-ref-4">4</a></sup> Korea posted the highest first-quarter growth in the OECD at 1.7% quarter-on-quarter<sup class="ref-mark"><a href="#what-ref-5">5</a></sup>, and the National Assembly Budget Office estimates the chip boom alone adds 0.8 percentage points to this year's real GDP growth.<sup class="ref-mark"><a href="#what-ref-4">4</a></sup></p>
+      <p class="lang-ko" hidden>2026년 현재 반도체는 이러한 전환의 정점에 서 있다. 빅테크의 AI 데이터센터 투자가 고부가가치 메모리(HBM) 수요를 견인하면서, 2026년 5월 반도체 수출은 전년 동기 대비 169.4% 증가해 전체 수출의 42.3%를 차지했다.<sup class="ref-mark"><a href="#what-ref-4">4</a></sup> 한국은 OECD 국가 중 1분기 성장률 1위(전분기 대비 1.7%)를 기록했으며<sup class="ref-mark"><a href="#what-ref-5">5</a></sup>, 국회예산정책처는 반도체 호황만으로 올해 실질 GDP 성장률이 0.8%p 상승한다고 추산했다.<sup class="ref-mark"><a href="#what-ref-4">4</a></sup></p>
+
+      <p class="lang-en">Structural change has run in parallel in the capital markets. The current administration made resolving the "Korea discount" an explicit policy agenda, and three rounds of Commercial Act amendments have written directors' fiduciary duty to shareholders into law and made cumulative voting and treasury-share cancellation mandatory, alongside a "one-strike-out" rule for unfair trading, a mandatory tender-offer rule, and tiered dividend taxation.<sup class="ref-mark"><a href="#what-ref-6">6</a></sup> (For the political backdrop, see <a class="xref" href="#sec-where">WHERE</a>.)</p>
+      <p class="lang-ko" hidden>같은 시기 자본시장 쪽에서도 구조적인 변화가 진행되었다. 현 정부는 '코리아 디스카운트 해소'를 명시적인 국정 과제로 내걸고 세 차례에 걸친 상법 개정을 통해 이사의 주주 충실의무 명문화, 집중투표제 의무화, 자사주 소각 의무화를 추진했으며, 불공정거래에 대한 '원스트라이크아웃' 원칙과 의무공개매수제, 고배당 기업에 대한 분리과세를 함께 도입했다.<sup class="ref-mark"><a href="#what-ref-6">6</a></sup> (정치적 배경은 <a class="xref" href="#sec-where">WHERE</a> 참고.)</p>
+
       <details class="a-source" open>
         <summary>References</summary>
         <div class="a-source-body">
           <ol class="ref-list">
-            <li>Policy Briefing (korea.kr) and financial press — three rounds of Commercial Act amendments, "one-strike-out" policy, mandatory tender-offer rule, tiered dividend taxation, "Korea discount" resolution agenda. <a href="https://www.asiae.co.kr" target="_blank" rel="noopener">Link</a> · <a href="https://www.ohmynews.com" target="_blank" rel="noopener">Link</a></li>
-            <li>Bank of Korea, <em>National Accounts — GDP by Economic Activity</em> (Real, Seasonally Adjusted, Quarterly), 2020–2025 quarterly comparison, Economic Statistics System (ECOS). <a href="https://ecos.bok.or.kr" target="_blank" rel="noopener">Link</a></li>
-            <li>National Assembly Budget Office (NABO), <em>Strong Semiconductor Exports and Korea's Economic Growth This Year</em>, June 2026 — semiconductor exports +169.4% YoY (May 2026, underlying data: Ministry of Trade, Industry and Resources (MOTIR) export statistics); 42.3% share of total exports; estimated +0.8%p contribution to real GDP growth. <a href="https://www.nabo.go.kr" target="_blank" rel="noopener">Link</a></li>
-            <li>Bank of Korea, <em>Real Gross Domestic Product: First Quarter of 2026</em> (Advance Estimate), April 23, 2026 — +1.7% QoQ. <a href="https://www.bok.or.kr" target="_blank" rel="noopener">Link</a> · OECD, <em>Quarterly National Accounts</em>, Q1 2026 (provisional) — highest among member countries. <a href="https://www.oecd.org" target="_blank" rel="noopener">Link</a></li>
-            <li>Ministry of Economy and Finance (interagency), <em>Economic Growth Strategy for the Second Half of 2026</em>, July 14, 2026 — full-year growth forecast raised to 3.0%; assessment of semiconductor concentration and K-shaped divergence. <a href="https://www.moef.go.kr" target="_blank" rel="noopener">Link</a></li>
+            <li id="what-ref-1">IMF, <em>World Economic Outlook Update</em>, July 2026 — advanced economies 1.7% (2026) and 1.8% (2027), euro area 0.9%, Japan 0.6%, United States 2.3%, Korea 2.6% (revised up from 1.9% in April, the largest upgrade among 30 major economies) and 2.5% for 2027. Top four net exporters of AI hardware: Korea, Malaysia, Taiwan Province of China, Thailand. Includes figures as cited in the Ministry of Economy and Finance press release of July 8, 2026. <a href="https://www.imf.org/-/media/files/publications/weo/2026/update/july/english/text.pdf" target="_blank" rel="noopener">Link</a></li>
+            <li id="what-ref-2">Ministry of Economy and Finance (interagency), <em>Economic Growth Strategy for the Second Half of 2026</em>, July 14, 2026 — full-year growth forecast raised to 3.0%. <a href="https://www.moef.go.kr" target="_blank" rel="noopener">Link</a></li>
+            <li id="what-ref-3">Bank of Korea, <em>National Accounts — GDP by Economic Activity</em> (Real, Seasonally Adjusted, Quarterly), 2020–2025 quarterly comparison, Economic Statistics System (ECOS). Source figures are in Korean won; dollar amounts are converted at a reference rate of KRW 1,400 = USD 1 and rounded. Underlying KRW values: ICT 29.1 → 38 trillion; health and social welfare 26.3 → 34 trillion; transport and warehousing 19 → 24 trillion; wholesale/retail and accommodation/food approx. 58 trillion; real estate approx. 44 trillion. Growth rates are calculated on the won figures and are unaffected by the exchange rate. <a href="https://ecos.bok.or.kr" target="_blank" rel="noopener">Link</a></li>
+            <li id="what-ref-4">National Assembly Budget Office (NABO), <em>Strong Semiconductor Exports and Korea's Economic Growth This Year</em>, June 2026 — semiconductor exports +169.4% YoY (May 2026; underlying data: Ministry of Trade, Industry and Resources export statistics); 42.3% share of total exports; estimated +0.8%p contribution to real GDP growth. <a href="https://www.nabo.go.kr" target="_blank" rel="noopener">Link</a></li>
+            <li id="what-ref-5">Bank of Korea, <em>Real Gross Domestic Product: First Quarter of 2026</em> (Advance Estimate), April 23, 2026 — +1.7% QoQ. <a href="https://www.bok.or.kr" target="_blank" rel="noopener">Link</a> · OECD, <em>Quarterly National Accounts</em>, Q1 2026 (provisional) — highest among member countries. <a href="https://www.oecd.org" target="_blank" rel="noopener">Link</a></li>
+            <li id="what-ref-6">Policy Briefing (korea.kr) and financial press — three rounds of Commercial Act amendments, "one-strike-out" policy, mandatory tender-offer rule, tiered dividend taxation, "Korea discount" resolution agenda. <a href="https://www.asiae.co.kr" target="_blank" rel="noopener">Link</a> · <a href="https://www.ohmynews.com" target="_blank" rel="noopener">Link</a></li>
           </ol>
         </div>
       </details>
@@ -709,12 +746,25 @@
     var navBtns = Array.prototype.slice.call(document.querySelectorAll('.sec-nav .pill'));
 
     // Show only the selected section, hide the rest
+    function activateSection(targetId) {
+      sections.forEach(function (s) { s.classList.toggle('active', s.id === targetId); });
+      navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === targetId); });
+    }
+
     navBtns.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
-        var targetId = btn.dataset.target;
-        sections.forEach(function (s) { s.classList.toggle('active', s.id === targetId); });
-        navBtns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        activateSection(btn.dataset.target);
+        document.querySelector('.controls').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // In-body cross-section links (WHY/WHERE/WHO/... mentioned inline) switch tabs too
+    document.querySelectorAll('a.xref[href^="#sec-"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var targetId = link.getAttribute('href').slice(1);
+        activateSection(targetId);
         document.querySelector('.controls').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });

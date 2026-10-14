@@ -8,7 +8,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ── Tokens ─────────────────────────────────────────── */
     :root {
@@ -48,7 +48,7 @@
       padding: 48px 28px 28px;
     }
     .nameplate {
-      font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, 'Times New Roman', serif;
       font-size: 28px;
       font-weight: 500;
       letter-spacing: -0.01em;
@@ -65,7 +65,7 @@
     /* ── Article head ────────────────────────────────────── */
     .a-head { padding: 32px 0 36px; border-bottom: 1px solid var(--hair); }
     .a-title {
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
       font-size: 38px;
       font-weight: 500;
       line-height: 1.15;
@@ -73,11 +73,13 @@
       margin: 0;
     }
     .a-subtitle {
-      font-family: 'Newsreader', Georgia, serif;
-      font-style: italic;
-      font-size: 18px;
-      color: var(--mut);
-      margin: 10px 0 0;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin: 4px 0 0;
     }
     /* ── Controls: section nav (anchors) ─────────────────── */
     .controls {
@@ -143,7 +145,7 @@
     .article-body[data-lang="ko"] #sec-appendix.active { display: block; }
 
     .a-h2 {
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
       font-size: 28px;
       font-weight: 500;
       line-height: 1.2;
@@ -151,7 +153,7 @@
       margin: 8px 0 22px;
     }
     .a-h3 {
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
       font-size: 19px;
       font-weight: 600;
       margin: 30px 0 10px;
@@ -165,7 +167,7 @@
       border-left: 2px solid rgba(20,16,10,0.14);
     }
     .a-quote p {
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
       font-style: italic;
       font-size: 17px;
       line-height: 1.6;
@@ -323,7 +325,7 @@
       text-align: center;
     }
     .foot-brand {
-      font-family: 'Newsreader', Georgia, serif;
+      font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
       font-size: 24px;
       font-weight: 500;
       margin-bottom: 10px;
@@ -376,8 +378,8 @@
   </header>
 
   <div class="a-head">
-    <h1 class="a-title"><span class="h-lang-en">5 Things You Need to Know Before Starting a Business in Korea</span><span class="h-lang-ko" hidden>한국을 읽는 5가지 알쓸신잡</span></h1>
-    <p class="a-subtitle lang-ko" hidden>예비창업자, 경영자 그리고 시민들을 위하여</p>
+    <h1 class="a-title"><span class="h-lang-en">5 Things You Need to Know Before Starting a Business in Korea</span><span class="h-lang-ko" hidden>한국인이 써본 한국의 5대요소</span></h1>
+    <p class="a-subtitle lang-ko" hidden>: 예비창업자, 경영자, 그 외 독자들을 위하여</p>
   </div>
 
   <div class="controls">
@@ -396,7 +398,7 @@
   <div class="article-body" data-lang="en">
 
     <section class="a-section active" id="sec-why">
-      <h2 class="a-h2"><span class="h-lang-en">Welcome to the Trend Battlefield</span><span class="h-lang-ko" hidden>트렌드 전쟁터에 오신 것을 환영합니다</span></h2>
+      <h2 class="a-h2"><span class="h-lang-en">Welcome to the Trend Battlefield</span><span class="h-lang-ko" hidden>안녕, 여기는 트렌드 전쟁터</span></h2>
 
       <p class="lang-en">Korea packs 51.6 million people into roughly 100,000 km² across the southern half of the peninsula. The country is about a quarter the size of Japan and a hundredth the size of the United States, yet it ranks among the world's fifteen largest economies, with nominal GDP of roughly $1.86 trillion and per-capita GDP around $36,000 — deep enough purchasing power to sustain everything from premium to value pricing.<sup class="ref-mark"><a href="#why-ref-1">1</a></sup> Louis Vuitton and Hermès open flagships of global scale in Seoul, while deep-discount brands like Daiso and No Brand grow right alongside them.</p>
       <p class="lang-ko" hidden>한국은 한반도 남쪽 절반, 약 10만 km²라는 좁은 땅에 5,160만 명이 밀집된 밀도 높은 나라이다. 국토 면적은 일본의 ¼, 미국의 1/100 정도지만, 명목 GDP 약 1조 8600억 달러로 세계 15대 경제권에 들고, 1인당 GDP는 약 3만 6000달러 수준으로 프리미엄부터 저가 라인까지 다양한 가격 전략을 지탱할 만큼 구매력이 충분하다.<sup class="ref-mark"><a href="#appendix-ref-1">1</a></sup> 루이비통·에르메스가 서울에 세계적 규모의 플래그십을 여는 동시에, 다이소·노브랜드 같은 초저가 브랜드도 높은 성장을 기록하며 나란히 크고 있다.</p>

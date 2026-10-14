@@ -139,10 +139,10 @@
     }
 
     /* ── Sections ────────────────────────────────────────── */
-    .a-section { display: none; padding: 48px 0; scroll-margin-top: 78px; }
-    .a-section.active { display: block; }
+    .a-section { display: block; padding: 48px 0; scroll-margin-top: 78px; border-top: 1px solid var(--hair); }
+    .a-section:first-of-type { border-top: none; padding-top: 8px; }
     #sec-appendix { display: none; }
-    .article-body[data-lang="ko"] #sec-appendix.active { display: block; }
+    .article-body[data-lang="ko"] #sec-appendix { display: block; }
 
     .a-h2 {
       font-family: 'Newsreader', 'Noto Serif KR', Georgia, serif;
@@ -397,7 +397,7 @@
 
   <div class="article-body" data-lang="en">
 
-    <section class="a-section active" id="sec-why">
+    <section class="a-section" id="sec-why">
       <h2 class="a-h2"><span class="h-lang-en">Welcome to the Trend Battlefield</span><span class="h-lang-ko" hidden>안녕, 여기는 트렌드 전쟁터</span></h2>
 
       <p class="lang-en">Korea packs 51.6 million people into roughly 100,000 km² across the southern half of the peninsula. The country is about a quarter the size of Japan and a hundredth the size of the United States, yet it ranks among the world's fifteen largest economies, with nominal GDP of roughly $1.86 trillion and per-capita GDP around $36,000 — deep enough purchasing power to sustain everything from premium to value pricing.<sup class="ref-mark"><a href="#why-ref-1">1</a></sup> Louis Vuitton and Hermès open flagships of global scale in Seoul, while deep-discount brands like Daiso and No Brand grow right alongside them.</p>
@@ -857,29 +857,43 @@
     var sections = Array.prototype.slice.call(document.querySelectorAll('.a-section'));
     var navBtns = Array.prototype.slice.call(document.querySelectorAll('.sec-nav .pill'));
 
-    // Show only the selected section, hide the rest
-    function activateSection(targetId) {
-      sections.forEach(function (s) { s.classList.toggle('active', s.id === targetId); });
+    // Smooth-scroll to a section (long-form page; sections stay in the flow)
+    function scrollToSection(targetId) {
+      var target = document.getElementById(targetId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function highlightPill(targetId) {
       navBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.target === targetId); });
     }
 
     navBtns.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         e.preventDefault();
-        activateSection(btn.dataset.target);
-        document.querySelector('.controls').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollToSection(btn.dataset.target);
+        highlightPill(btn.dataset.target);
       });
     });
 
-    // In-body cross-section links (WHY/WHERE/WHO/... mentioned inline) switch tabs too
+    // In-body cross-section links (WHY/WHERE/WHO/... mentioned inline) jump to that section
     document.querySelectorAll('a.xref[href^="#sec-"]').forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         var targetId = link.getAttribute('href').slice(1);
-        activateSection(targetId);
-        document.querySelector('.controls').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        scrollToSection(targetId);
+        highlightPill(targetId);
       });
     });
+
+    // Scroll-spy: highlight whichever section pill is currently in view
+    if ('IntersectionObserver' in window) {
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) highlightPill(entry.target.id);
+        });
+      }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function (s) { spy.observe(s); });
+    }
 
     // English / Korean body-text toggle (auto-translated placeholder copy for now)
     var articleBody = document.querySelector('.article-body');
